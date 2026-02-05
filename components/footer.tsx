@@ -1,27 +1,68 @@
-import { Button } from "./ui/button"
+import { Facebook, Instagram } from 'lucide-react'
 
 function Footer() {
   return (
-    <footer className="w-full px-10 pt-20 md:px-[20%]">
-      <div className="grid md:grid-cols-5">
-        <div className="flex flex-col">
-          <h1 className="text-black/60 md:mb-8">Menu</h1>
-          <Button variant="link" className="w-fit px-0">Demos</Button>
-          <Button variant="link" className="w-fit px-0">Pages</Button>
-          <Button variant="link" className="w-fit px-0">Support</Button>
-          <Button variant="link" className="w-fit px-0">Contact</Button>
-        </div>
-        <div className="flex mt-8 flex-col md:mt-0">
-          <h1 className="text-black/60 md:mb-8">Contact us</h1>
-          <Button variant="link" className="w-fit px-0 text-blue-500 font-bold">contact@waveconsult.com</Button>
-          <Button variant="link" className="w-fit px-0 text-blue-500 font-bold">+55 (93) 99138-4250</Button>
-        </div>
-      </div>
+    <footer className="w-full bg-slate-900 text-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Main footer content */}
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
+          {/* Doctor info */}
+          <div>
+            <h3 className="font-bold text-lg mb-3">Dr. José Manuel Fernández Rivero</h3>
+            <div className="space-y-1 text-sm text-white/70">
+              <p>Cédula Profesional: [NÚMERO]</p>
+              <p>Especialidad: Coloproctología</p>
+            </div>
+          </div>
 
-      <div className="mt-20 h-[1px] bg-gradient-to-r from-transparent via-slate-300 to-transparent w-full" />
+          {/* Legal */}
+          <div>
+            <h3 className="font-bold text-lg mb-3">Información Legal</h3>
+            <div className="space-y-1 text-sm text-white/70">
+              <p>Aviso de Funcionamiento COFEPRIS: [NÚMERO]</p>
+              <p>Aviso de Publicidad COFEPRIS: [NÚMERO]</p>
+            </div>
+          </div>
 
-      <div className="my-10">
-        <span className="text-black/60">© 2024 Copyright. All Rights Reserved. wave consult.</span>
+          {/* Location */}
+          <div>
+            <h3 className="font-bold text-lg mb-3">Ubicaciones</h3>
+            <div className="space-y-1 text-sm text-white/70">
+              <p>Consultorio: [DIRECCIÓN COMPLETA]</p>
+              <p>Quirófano: Cielo Medical Center</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Social & links */}
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <a
+              href="#"
+              className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-5 h-5" />
+            </a>
+            <a
+              href="#"
+              className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+          </div>
+
+          <div className="flex items-center gap-4 text-sm text-white/50">
+            <a href="#" className="hover:text-white/80 transition-colors">Aviso de Privacidad</a>
+            <span>|</span>
+            <a href="#" className="hover:text-white/80 transition-colors">Términos y Condiciones</a>
+          </div>
+
+          <p className="text-sm text-white/50">
+            &copy; 2026 Dr. José Manuel Fernández - Todos los derechos reservados
+          </p>
+        </div>
       </div>
     </footer>
   )

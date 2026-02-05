@@ -1,0 +1,189 @@
+'use client'
+
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronDown, Clock, Building2, Calendar, ArrowRight } from 'lucide-react'
+import { Button } from './ui/button'
+
+const WHATSAPP_LINK = "https://wa.me/521XXXXXXXXXX?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20valoración."
+
+const procedures = [
+  {
+    title: "Hemorroidectomía",
+    what: "Cirugía para eliminar hemorroides internas o externas que causan dolor, sangrado o prolapso.",
+    when: [
+      "Hemorroides que no responden a tratamiento conservador",
+      "Sangrado recurrente",
+      "Dolor constante que afecta tu calidad de vida",
+      "Hemorroides trombosadas",
+    ],
+    recovery: {
+      procedure: "30-45 minutos",
+      hospital: "Ambulatorio o 1 día",
+      light: "5-7 días",
+      full: "2-3 semanas",
+    },
+  },
+  {
+    title: "Fistulotomía",
+    what: "Cirugía para tratar fístulas anales (conexiones anormales entre el recto y la piel).",
+    when: [
+      "Infecciones recurrentes",
+      "Secreción constante",
+      "Dolor al sentarse",
+      "Fístulas que no cierran solas",
+    ],
+    recovery: {
+      procedure: "45-60 minutos",
+      hospital: "1 día",
+      light: "7-10 días",
+      full: "3-4 semanas",
+    },
+  },
+  {
+    title: "Colonoscopia",
+    what: "Estudio diagnóstico para examinar el colon completo y detectar problemas.",
+    when: [
+      "Sangrado rectal sin causa clara",
+      "Cambios en hábitos intestinales",
+      "Detección de pólipos o cáncer",
+      "Seguimiento post-cirugía",
+    ],
+    recovery: {
+      procedure: "20-30 minutos",
+      hospital: "Sedación: Sí (no sentirás nada)",
+      light: "Mismo día",
+      full: "Resultados inmediatos",
+    },
+  },
+]
+
+function ProcedureCard({ procedure }: { procedure: typeof procedures[0] }) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full px-6 py-5 flex items-center justify-between text-left"
+      >
+        <h3 className="text-xl font-bold text-gray-900">{procedure.title}</h3>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          <ChevronDown className="w-5 h-5 text-gray-500" />
+        </motion.div>
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-6 space-y-6">
+              {/* What is it */}
+              <div>
+                <h4 className="font-bold text-gray-800 mb-2">¿Qué es?</h4>
+                <p className="text-gray-600">{procedure.what}</p>
+              </div>
+
+              {/* When is it needed */}
+              <div>
+                <h4 className="font-bold text-gray-800 mb-2">¿Cuándo es necesaria?</h4>
+                <div className="space-y-2">
+                  {procedure.when.map((item, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <span className="text-gray-400 mt-1">-</span>
+                      <span className="text-gray-600">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Recovery */}
+              <div>
+                <h4 className="font-bold text-gray-800 mb-3">Recuperación típica:</h4>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-slate-50 rounded-lg p-3">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Clock className="w-4 h-4 text-green-600" />
+                      <span className="text-xs font-medium text-gray-500">Procedimiento</span>
+                    </div>
+                    <p className="text-sm font-semibold text-gray-800">{procedure.recovery.procedure}</p>
+                  </div>
+                  <div className="bg-slate-50 rounded-lg p-3">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Building2 className="w-4 h-4 text-green-600" />
+                      <span className="text-xs font-medium text-gray-500">Hospitalización</span>
+                    </div>
+                    <p className="text-sm font-semibold text-gray-800">{procedure.recovery.hospital}</p>
+                  </div>
+                  <div className="bg-slate-50 rounded-lg p-3">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Calendar className="w-4 h-4 text-green-600" />
+                      <span className="text-xs font-medium text-gray-500">Actividades ligeras</span>
+                    </div>
+                    <p className="text-sm font-semibold text-gray-800">{procedure.recovery.light}</p>
+                  </div>
+                  <div className="bg-slate-50 rounded-lg p-3">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Calendar className="w-4 h-4 text-green-600" />
+                      <span className="text-xs font-medium text-gray-500">Recuperación completa</span>
+                    </div>
+                    <p className="text-sm font-semibold text-gray-800">{procedure.recovery.full}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+                <Button className="w-full bg-green-600 hover:bg-green-700 text-white mt-2">
+                  AGENDAR VALORACIÓN
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  )
+}
+
+function ProceduresSection() {
+  return (
+    <section id="procedimientos" className="w-full py-16 lg:py-24 bg-white">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Procedimientos que Realizo
+          </h2>
+        </motion.div>
+
+        <div className="space-y-4">
+          {procedures.map((procedure, index) => (
+            <ProcedureCard key={index} procedure={procedure} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default ProceduresSection
