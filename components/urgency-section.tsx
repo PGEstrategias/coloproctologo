@@ -19,16 +19,16 @@ const symptoms = [
 
 function UrgencySection() {
   return (
-    <section className="w-full py-16 lg:py-24 bg-red-50">
+    <section className="w-full py-12 sm:py-16 lg:py-24 bg-red-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             ¿Cuándo Debes Agendar Tu Valoración AHORA?
           </h2>
         </motion.div>
@@ -38,16 +38,16 @@ function UrgencySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white rounded-2xl p-8 border border-red-200 shadow-sm"
+          className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-8 border border-red-200 shadow-sm"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <AlertCircle className="w-6 h-6 text-red-600" />
-            <p className="text-lg font-bold text-red-700">
+          <div className="flex items-start sm:items-center gap-2 sm:gap-3 mb-5 sm:mb-6">
+            <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6 text-red-600 flex-shrink-0 mt-0.5 sm:mt-0" />
+            <p className="text-base sm:text-lg font-bold text-red-700">
               Si tienes estos síntomas, NO esperes más:
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-3 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mb-6 sm:mb-8">
             {symptoms.map((symptom, index) => (
               <motion.div
                 key={index}
@@ -57,20 +57,21 @@ function UrgencySection() {
                 transition={{ duration: 0.3, delay: 0.05 * index }}
                 className="flex items-start gap-2"
               >
-                <span className="text-red-500 mt-0.5 flex-shrink-0">❌</span>
-                <p className="text-gray-700">{symptom}</p>
+                <span className="text-red-500 mt-0.5 flex-shrink-0 text-sm">❌</span>
+                <p className="text-sm sm:text-base text-gray-700">{symptom}</p>
               </motion.div>
             ))}
           </div>
 
-          <p className="text-center text-red-700 font-semibold text-lg mb-6">
+          <p className="text-center text-red-700 font-semibold text-base sm:text-lg mb-5 sm:mb-6">
             Mientras más esperes, más complicado puede volverse.
           </p>
 
           <div className="text-center">
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-6 shadow-lg">
-                🚨 AGENDA VALORACIÓN URGENTE (Respuesta en menos de 24 horas)
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto">
+              <Button size="lg" className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white text-sm sm:text-lg px-5 sm:px-8 py-4 sm:py-6 shadow-lg min-h-[48px]">
+                <span className="hidden sm:inline">🚨 AGENDA VALORACIÓN URGENTE (Respuesta en menos de 24 hrs)</span>
+                <span className="sm:hidden">🚨 VALORACIÓN URGENTE - Respuesta &lt;24 hrs</span>
               </Button>
             </a>
           </div>

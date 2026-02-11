@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Check, ArrowRight, Clock, Scissors, Heart, Activity } from 'lucide-react'
+import { Check, Clock, Scissors, Heart, Activity } from 'lucide-react'
 import { Button } from './ui/button'
 
 const WHATSAPP_LINK = "https://wa.me/521XXXXXXXXXX?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20valoración."
@@ -27,26 +27,26 @@ const comparison = {
 
 function SolutionSection() {
   return (
-    <section className="w-full py-16 lg:py-24 bg-white">
+    <section className="w-full py-12 sm:py-16 lg:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
             La Cirugía Proctológica Ya NO es Como Hace 20 Años
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             En mis 20 años como coloproctólogo he visto la transformación completa de estos procedimientos.
             Hoy, el <strong>90% de mis cirugías son mínimamente invasivas</strong>, lo que significa:
           </p>
         </motion.div>
 
         {/* Benefits list */}
-        <div className="grid md:grid-cols-2 gap-4 mb-16 max-w-4xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-10 sm:mb-16 max-w-4xl mx-auto">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
@@ -54,12 +54,12 @@ function SolutionSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.1 * index }}
-              className="flex items-start gap-3 p-4 bg-green-50 rounded-xl"
+              className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-green-50 rounded-xl"
             >
-              <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <benefit.icon className="w-4 h-4 text-green-600" />
+              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <benefit.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-600" />
               </div>
-              <p className="text-gray-700">{benefit.text}</p>
+              <p className="text-sm sm:text-base text-gray-700">{benefit.text}</p>
             </motion.div>
           ))}
         </div>
@@ -70,31 +70,31 @@ function SolutionSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-10 sm:mb-16"
         >
-          <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">Antes vs Ahora</h3>
-          <div className="grid md:grid-cols-2 gap-6">
+          <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-900 mb-6 sm:mb-8">Antes vs Ahora</h3>
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
             {/* Before */}
-            <div className="bg-red-50 border border-red-100 rounded-2xl p-6">
-              <h4 className="text-lg font-bold text-red-700 mb-4">{comparison.before.title}</h4>
-              <div className="space-y-3">
+            <div className="bg-red-50 border border-red-100 rounded-xl sm:rounded-2xl p-4 sm:p-6">
+              <h4 className="text-base sm:text-lg font-bold text-red-700 mb-3 sm:mb-4">{comparison.before.title}</h4>
+              <div className="space-y-2 sm:space-y-3">
                 {comparison.before.items.map((item, i) => (
                   <div key={i} className="flex items-center gap-2">
-                    <span className="text-red-400">✕</span>
-                    <span className="text-gray-700">{item}</span>
+                    <span className="text-red-400 flex-shrink-0">✕</span>
+                    <span className="text-sm sm:text-base text-gray-700">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* After */}
-            <div className="bg-green-50 border border-green-200 rounded-2xl p-6">
-              <h4 className="text-lg font-bold text-green-700 mb-4">{comparison.after.title}</h4>
-              <div className="space-y-3">
+            <div className="bg-green-50 border border-green-200 rounded-xl sm:rounded-2xl p-4 sm:p-6">
+              <h4 className="text-base sm:text-lg font-bold text-green-700 mb-3 sm:mb-4">{comparison.after.title}</h4>
+              <div className="space-y-2 sm:space-y-3">
                 {comparison.after.items.map((item, i) => (
                   <div key={i} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
-                    <span className="text-gray-700">{item}</span>
+                    <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
+                    <span className="text-sm sm:text-base text-gray-700">{item}</span>
                   </div>
                 ))}
               </div>
@@ -108,37 +108,34 @@ function SolutionSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-slate-50 rounded-2xl p-8 mb-12"
+          className="bg-slate-50 rounded-xl sm:rounded-2xl p-5 sm:p-8 mb-8 sm:mb-12"
         >
-          <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">Timeline de Recuperación</h3>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-900 mb-6 sm:mb-8">Timeline de Recuperación</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
             {[
               { day: "Día 1", desc: "Cirugía ambulatoria", color: "bg-blue-500" },
               { day: "Día 3-5", desc: "Molestia leve controlada", color: "bg-yellow-500" },
               { day: "Día 7", desc: "Vuelta al trabajo", color: "bg-green-500" },
               { day: "Semana 3-4", desc: "Recuperación completa", color: "bg-green-600" },
             ].map((step, i) => (
-              <div key={i} className="flex items-center gap-3 md:flex-col md:text-center">
-                <div className={`w-4 h-4 rounded-full ${step.color} flex-shrink-0`} />
-                <div>
-                  <p className="font-bold text-gray-900">{step.day}</p>
-                  <p className="text-sm text-gray-600">{step.desc}</p>
-                </div>
-                {i < 3 && <ArrowRight className="hidden md:block w-6 h-6 text-gray-300 absolute" />}
+              <div key={i} className="flex flex-col items-center text-center p-3 sm:p-4 bg-white rounded-lg sm:rounded-xl">
+                <div className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full ${step.color} mb-2`} />
+                <p className="font-bold text-xs sm:text-sm text-gray-900">{step.day}</p>
+                <p className="text-[10px] sm:text-sm text-gray-600 mt-0.5">{step.desc}</p>
               </div>
             ))}
           </div>
         </motion.div>
 
-        <p className="text-center text-gray-600 mb-8 max-w-3xl mx-auto text-lg">
+        <p className="text-center text-sm sm:text-lg text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto">
           He realizado <strong>más de 500 cirugías exitosas</strong> de hemorroides, fístulas, fisuras y otros procedimientos proctológicos.
           Y cada paciente recibe atención personalizada desde la primera consulta hasta el último seguimiento.
         </p>
 
         <div className="text-center">
-          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-6 shadow-lg">
-              📱 AGENDA TU VALORACIÓN SIN COMPROMISO
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto">
+            <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white text-sm sm:text-lg px-6 sm:px-8 py-4 sm:py-6 shadow-lg min-h-[48px]">
+              AGENDA TU VALORACIÓN SIN COMPROMISO
             </Button>
           </a>
         </div>

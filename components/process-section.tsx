@@ -20,7 +20,7 @@ const steps = [
       "Plan personalizado",
       "Resolución de todas tus dudas",
     ],
-    details: "Duración: 30-40 minutos | Ubicación: Consultorio en Puebla",
+    details: "Duración: 30-40 min | Ubicación: Consultorio en Puebla",
   },
   {
     icon: TestTube,
@@ -58,7 +58,7 @@ const steps = [
       "Cirugía mínimamente invasiva",
       "Recuperación en sala post-op",
     ],
-    details: "Tiempo total en hospital: 4-8 horas | Ubicación: Cielo Medical Center | Acompañante necesario",
+    details: "Tiempo total: 4-8 hrs | Cielo Medical Center | Acompañante necesario",
   },
   {
     icon: Home,
@@ -90,28 +90,28 @@ const steps = [
 
 function ProcessSection() {
   return (
-    <section id="proceso" className="w-full py-16 lg:py-24 bg-slate-50">
+    <section id="proceso" className="w-full py-12 sm:py-16 lg:py-24 bg-slate-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
             ¿Cómo es el Proceso Completo?
           </h2>
-          <p className="text-xl text-green-700 font-semibold">
+          <p className="text-lg sm:text-xl text-green-700 font-semibold">
             Todo Explicado con Transparencia
           </p>
         </motion.div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-green-200 hidden md:block" />
+          {/* Timeline line - desktop only */}
+          <div className="absolute left-[22px] sm:left-6 top-0 bottom-0 w-0.5 bg-green-200 hidden sm:block" />
 
-          <div className="space-y-8">
+          <div className="space-y-4 sm:space-y-8">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
@@ -121,15 +121,43 @@ function ProcessSection() {
                 transition={{ duration: 0.5, delay: 0.1 * index }}
                 className="relative"
               >
-                <div className="flex gap-6">
-                  {/* Icon */}
+                {/* Mobile layout: icon on top */}
+                <div className="sm:hidden">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center shadow-lg shadow-green-600/20 flex-shrink-0">
+                      <step.icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold text-green-600 uppercase tracking-wider">{step.step}</span>
+                      <h3 className="text-base font-bold text-gray-900 leading-tight">{step.title}</h3>
+                    </div>
+                  </div>
+                  <div className="ml-[52px]">
+                    <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                      <div className="space-y-1.5">
+                        {step.includes.map((item, i) => (
+                          <div key={i} className="flex items-start gap-2">
+                            <span className="text-green-500 mt-0.5 flex-shrink-0 text-xs">✅</span>
+                            <span className="text-gray-600 text-sm">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                      {step.details && (
+                        <p className="mt-2.5 text-xs text-gray-500 bg-slate-50 rounded-lg px-2.5 py-1.5">
+                          {step.details}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Desktop layout: side by side */}
+                <div className="hidden sm:flex gap-6">
                   <div className="relative z-10 flex-shrink-0">
                     <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center shadow-lg shadow-green-600/20">
                       <step.icon className="w-6 h-6 text-white" />
                     </div>
                   </div>
-
-                  {/* Content */}
                   <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex-1">
                     <span className="text-xs font-bold text-green-600 uppercase tracking-wider">{step.step}</span>
                     <h3 className="text-lg font-bold text-gray-900 mt-1 mb-3">{step.title}</h3>
@@ -158,11 +186,11 @@ function ProcessSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mt-12"
+          className="text-center mt-8 sm:mt-12"
         >
-          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-6 shadow-lg">
-              📱 COMIENZA CON TU VALORACIÓN HOY
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto">
+            <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white text-sm sm:text-lg px-6 sm:px-8 py-4 sm:py-6 shadow-lg min-h-[48px]">
+              COMIENZA CON TU VALORACIÓN HOY
             </Button>
           </a>
         </motion.div>

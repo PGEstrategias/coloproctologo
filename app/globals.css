@@ -33,23 +33,53 @@
 @layer base {
   * {
     @apply border-border;
+    -webkit-tap-highlight-color: transparent;
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 }
 
 @layer components {
   .whatsapp-float {
-    @apply fixed bottom-6 right-6 z-50 bg-green-500 text-white rounded-full p-4 shadow-lg hover:bg-green-600 transition-all hover:scale-110;
+    @apply fixed z-50 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 transition-all hover:scale-110;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 0.875rem;
+    min-width: 52px;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ensure buttons are touch-friendly */
+  .btn-mobile {
+    @apply w-full text-center justify-center;
+    min-height: 48px;
+  }
+
+  /* Section padding mobile-first */
+  .section-padding {
+    @apply px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+/* Safe area for devices with notch/home indicator */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .whatsapp-float {
+    bottom: calc(1.5rem + env(safe-area-inset-bottom));
   }
 }

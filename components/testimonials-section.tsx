@@ -35,24 +35,25 @@ const testimonials = [
 
 function TestimonialsSection() {
   return (
-    <section id="testimonios" className="w-full py-16 lg:py-24 bg-white">
+    <section id="testimonios" className="w-full py-12 sm:py-16 lg:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
             Lo Que Dicen Mis Pacientes
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-base sm:text-lg text-gray-600">
             Más de 500 Casos Exitosos
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Mobile: horizontal scroll, Desktop: grid */}
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 sm:pb-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -60,24 +61,24 @@ function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.15 * index }}
-              className="bg-slate-50 rounded-2xl p-6 border border-gray-100"
+              className="min-w-[280px] sm:min-w-0 snap-center bg-slate-50 rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-gray-100 flex-shrink-0 sm:flex-shrink"
             >
               {/* Stars */}
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-0.5 sm:gap-1 mb-3 sm:mb-4">
                 {Array.from({ length: testimonial.stars }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                  <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
 
               {/* Quote */}
-              <blockquote className="text-gray-700 text-sm leading-relaxed mb-6 whitespace-pre-line">
+              <blockquote className="text-gray-700 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 whitespace-pre-line">
                 &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
 
               {/* Attribution */}
-              <div className="border-t border-gray-200 pt-4">
-                <p className="font-bold text-gray-900">— {testimonial.name}, {testimonial.age}</p>
-                <p className="text-sm text-green-700">{testimonial.procedure} | {testimonial.location}</p>
+              <div className="border-t border-gray-200 pt-3 sm:pt-4">
+                <p className="font-bold text-sm sm:text-base text-gray-900">— {testimonial.name}, {testimonial.age}</p>
+                <p className="text-xs sm:text-sm text-green-700">{testimonial.procedure} | {testimonial.location}</p>
               </div>
             </motion.div>
           ))}
@@ -88,11 +89,11 @@ function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mt-12"
+          className="text-center mt-8 sm:mt-12"
         >
-          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-6 shadow-lg">
-              📱 SÉ EL PRÓXIMO CASO DE ÉXITO
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto">
+            <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white text-sm sm:text-lg px-6 sm:px-8 py-4 sm:py-6 shadow-lg min-h-[48px]">
+              SÉ EL PRÓXIMO CASO DE ÉXITO
             </Button>
           </a>
         </motion.div>
