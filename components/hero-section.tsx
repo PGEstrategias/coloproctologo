@@ -9,10 +9,10 @@ const PHONE_NUMBER = "tel:+52XXXXXXXXXX"
 
 function HeroSection() {
   return (
-    <section id="hero" className="relative w-full min-h-[100dvh] bg-gradient-to-br from-slate-900 via-slate-800 to-green-900 pt-16 sm:pt-20">
+    <section id="hero" className="relative w-full min-h-[100dvh] bg-gradient-to-br from-slate-900 via-slate-800 to-green-900 pt-20 sm:pt-24 lg:pt-28 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-green-900/20 via-transparent to-transparent" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-12 lg:py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-16">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left column - Text */}
           <motion.div
@@ -52,37 +52,38 @@ function HeroSection() {
 
             {/* CTAs - full width on mobile */}
             <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 mb-5 sm:mb-8">
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white text-sm sm:text-lg px-5 sm:px-8 py-4 sm:py-6 shadow-lg shadow-green-600/30 min-h-[48px]">
-                  AGENDA TU VALORACIÓN
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block">
+                <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 text-white text-sm sm:text-base px-4 sm:px-8 py-4 sm:py-6 shadow-lg shadow-green-600/30 min-h-[48px] whitespace-normal">
+                  <span className="sm:hidden">AGENDAR CITA</span>
+                  <span className="hidden sm:inline">AGENDA TU VALORACIÓN</span>
                 </Button>
               </a>
-              <a href={PHONE_NUMBER} className="block w-full sm:w-auto">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10 text-sm sm:text-lg px-5 sm:px-8 py-4 sm:py-6 min-h-[48px]">
+              <a href={PHONE_NUMBER} className="block">
+                <Button variant="outline" size="lg" className="w-full border-white/30 text-white hover:bg-white/10 text-sm sm:text-base px-4 sm:px-8 py-4 sm:py-6 min-h-[48px]">
                   <Phone className="w-4 h-4 mr-2 flex-shrink-0" />
-                  Llama Ahora
+                  <span>Llamar</span>
                 </Button>
               </a>
             </div>
 
             {/* Trust elements */}
-            <div className="flex flex-wrap gap-2 sm:gap-4 text-[11px] sm:text-sm text-white/80">
-              <span className="flex items-center gap-0.5 sm:gap-1">
+            <div className="space-y-2 text-[11px] sm:text-sm text-white/80">
+              <div className="flex items-center gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-yellow-400" />
                 ))}
-                <span className="ml-1">Calificación promedio</span>
-              </span>
-            </div>
-            <div className="flex flex-col xs:flex-row gap-1.5 sm:gap-4 mt-2 sm:mt-3 text-[11px] sm:text-sm text-white/80">
-              <span className="flex items-center gap-1">
-                <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
-                Atención el mismo día
-              </span>
-              <span className="flex items-center gap-1">
-                <Lock className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
-                100% Confidencial
-              </span>
+                <span className="ml-1.5">Calificación promedio</span>
+              </div>
+              <div className="flex flex-wrap gap-x-4 gap-y-1">
+                <span className="flex items-center gap-1">
+                  <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
+                  Atención mismo día
+                </span>
+                <span className="flex items-center gap-1">
+                  <Lock className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
+                  Confidencial
+                </span>
+              </div>
             </div>
           </motion.div>
 

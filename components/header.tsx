@@ -47,8 +47,8 @@ function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-white shadow-md py-2'
-            : 'bg-white/90 backdrop-blur-sm py-2.5 sm:py-3'
+            ? 'bg-white/95 backdrop-blur-md shadow-md py-2'
+            : 'bg-transparent py-3 sm:py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 flex items-center justify-between">
@@ -56,9 +56,13 @@ function Header() {
             <div className="w-9 h-9 sm:w-10 sm:h-10 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
               <span className="text-white font-bold text-sm sm:text-lg">DR</span>
             </div>
-            <div className="hidden xs:block min-w-0">
-              <p className="font-bold text-xs sm:text-sm text-gray-900 leading-tight truncate">Dr. José Manuel Fernández</p>
-              <p className="text-[10px] sm:text-xs text-green-700">Coloproctólogo</p>
+            <div className="hidden sm:block min-w-0">
+              <p className={`font-bold text-xs sm:text-sm leading-tight truncate transition-colors ${scrolled ? 'text-gray-900' : 'text-white'}`}>
+                Dr. José Manuel Fernández
+              </p>
+              <p className={`text-[10px] sm:text-xs transition-colors ${scrolled ? 'text-green-700' : 'text-green-300'}`}>
+                Coloproctólogo
+              </p>
             </div>
           </a>
 
@@ -67,7 +71,11 @@ function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-2 text-sm text-gray-700 hover:text-green-700 transition-colors rounded-md hover:bg-green-50"
+                className={`px-3 py-2 text-sm transition-colors rounded-md ${
+                  scrolled
+                    ? 'text-gray-700 hover:text-green-700 hover:bg-green-50'
+                    : 'text-white/90 hover:text-white hover:bg-white/10'
+                }`}
               >
                 {link.label}
               </a>
@@ -76,7 +84,15 @@ function Header() {
 
           <div className="flex items-center gap-1.5 sm:gap-2">
             <a href={PHONE_NUMBER} className="hidden sm:flex">
-              <Button variant="outline" size="sm" className="text-green-700 border-green-300 hover:bg-green-50 text-xs sm:text-sm h-8 sm:h-9 px-2 sm:px-3">
+              <Button
+                variant="outline"
+                size="sm"
+                className={`text-xs sm:text-sm h-8 sm:h-9 px-2 sm:px-3 transition-colors ${
+                  scrolled
+                    ? 'text-green-700 border-green-300 hover:bg-green-50'
+                    : 'text-white border-white/40 hover:bg-white/10'
+                }`}
+              >
                 <Phone className="w-3.5 h-3.5 mr-1" />
                 Llamar
               </Button>
@@ -87,7 +103,7 @@ function Header() {
               </Button>
             </a>
             <button
-              className="lg:hidden p-2 -mr-1 rounded-md hover:bg-gray-100 transition-colors"
+              className={`lg:hidden p-2 -mr-1 rounded-md transition-colors ${scrolled ? 'hover:bg-gray-100 text-gray-700' : 'hover:bg-white/10 text-white'}`}
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
             >

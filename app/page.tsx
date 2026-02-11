@@ -21,7 +21,7 @@ const WHATSAPP_LINK = "https://wa.me/521XXXXXXXXXX?text=Hola%20Dr.%20Fernández%
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col overflow-x-hidden">
       <Header />
 
       {/* SECCIÓN 1: HERO */}
