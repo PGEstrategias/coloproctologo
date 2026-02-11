@@ -52,8 +52,8 @@ function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Mobile: horizontal scroll, Desktop: grid */}
-        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 sm:pb-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible">
+        {/* Mobile: stack, Desktop: grid */}
+        <div className="flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -61,7 +61,7 @@ function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.15 * index }}
-              className="min-w-[280px] sm:min-w-0 snap-center bg-slate-50 rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-gray-100 flex-shrink-0 sm:flex-shrink"
+              className="bg-slate-50 rounded-xl p-4 sm:p-6 border border-gray-100"
             >
               {/* Stars */}
               <div className="flex gap-0.5 sm:gap-1 mb-3 sm:mb-4">
@@ -91,9 +91,9 @@ function TestimonialsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mt-8 sm:mt-12"
         >
-          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto">
-            <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white text-sm sm:text-lg px-6 sm:px-8 py-4 sm:py-6 shadow-lg min-h-[48px]">
-              SÉ EL PRÓXIMO CASO DE ÉXITO
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block w-full sm:inline-block sm:w-auto">
+            <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white text-base px-6 py-5 shadow-lg">
+              AGENDAR CITA
             </Button>
           </a>
         </motion.div>

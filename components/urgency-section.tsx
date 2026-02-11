@@ -68,12 +68,12 @@ function UrgencySection() {
           </p>
 
           <div className="text-center">
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white text-sm sm:text-lg px-5 sm:px-8 py-4 sm:py-6 shadow-lg min-h-[48px]">
-                <span className="hidden sm:inline">🚨 AGENDA VALORACIÓN URGENTE (Respuesta en menos de 24 hrs)</span>
-                <span className="sm:hidden">🚨 VALORACIÓN URGENTE - Respuesta &lt;24 hrs</span>
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block w-full sm:inline-block sm:w-auto">
+              <Button size="lg" className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white text-base px-6 py-5 shadow-lg">
+                CITA URGENTE
               </Button>
             </a>
+            <p className="text-xs text-red-600 mt-2">Respuesta en menos de 24 hrs</p>
           </div>
         </motion.div>
       </div>

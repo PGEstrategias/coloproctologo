@@ -43,16 +43,16 @@ function FinalCTASection() {
           </div>
 
           {/* CTAs - full width on mobile */}
-          <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center mb-6 sm:mb-8">
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white text-sm sm:text-lg px-6 sm:px-10 py-5 sm:py-7 shadow-lg shadow-green-600/30 min-h-[52px]">
-                AGENDA TU VALORACIÓN CONFIDENCIAL
+          <div className="flex flex-col gap-3 mb-6 sm:mb-8">
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block w-full">
+              <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 text-white text-base px-6 py-6 shadow-lg shadow-green-600/30">
+                AGENDAR CITA
               </Button>
             </a>
-            <a href={PHONE_NUMBER} className="block w-full sm:w-auto">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10 text-sm sm:text-lg px-6 sm:px-8 py-5 sm:py-7 min-h-[52px]">
-                <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                O llama ahora
+            <a href={PHONE_NUMBER} className="block w-full">
+              <Button variant="outline" size="lg" className="w-full border-white/30 text-white hover:bg-white/10 text-base px-6 py-6">
+                <Phone className="w-4 h-4 mr-2" />
+                Llamar Ahora
               </Button>
             </a>
           </div>

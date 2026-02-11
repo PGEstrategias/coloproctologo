@@ -133,9 +133,9 @@ function SolutionSection() {
         </p>
 
         <div className="text-center">
-          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto">
-            <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white text-sm sm:text-lg px-6 sm:px-8 py-4 sm:py-6 shadow-lg min-h-[48px]">
-              AGENDA TU VALORACIÓN SIN COMPROMISO
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block w-full sm:inline-block sm:w-auto">
+            <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white text-base px-6 py-5 shadow-lg">
+              AGENDAR VALORACIÓN
             </Button>
           </a>
         </div>
