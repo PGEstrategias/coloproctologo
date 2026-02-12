@@ -133,22 +133,22 @@ function HeroSection() {
                 playsInline
                 className="w-full h-full object-cover"
               />
-              {/* Unmute button */}
+              {/* Unmute button - larger and more visible on mobile */}
               <button
                 onClick={toggleMute}
-                className="absolute top-3 right-3 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm"
+                className="absolute bottom-16 right-3 z-20 w-12 h-12 sm:w-10 sm:h-10 bg-black/60 hover:bg-black/80 active:bg-black/90 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm border border-white/20"
                 aria-label={isMuted ? 'Activar sonido' : 'Silenciar'}
               >
                 {isMuted ? (
-                  <VolumeX className="w-5 h-5 text-white" />
+                  <VolumeX className="w-6 h-6 sm:w-5 sm:h-5 text-white" />
                 ) : (
-                  <Volume2 className="w-5 h-5 text-white" />
+                  <Volume2 className="w-6 h-6 sm:w-5 sm:h-5 text-white" />
                 )}
               </button>
               {/* Tap to unmute hint */}
               {isMuted && (
-                <div className="absolute top-14 right-3 bg-black/50 text-white text-[10px] px-2 py-1 rounded backdrop-blur-sm">
-                  Toca para escuchar
+                <div className="absolute bottom-[104px] sm:bottom-28 right-3 z-20 bg-black/60 text-white text-xs px-2 py-1.5 rounded backdrop-blur-sm border border-white/20 whitespace-nowrap">
+                  🔊 Toca aquí
                 </div>
               )}
             </div>
