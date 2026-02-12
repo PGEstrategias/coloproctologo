@@ -92,18 +92,16 @@ function Header() {
 
           <div className="flex items-center gap-1.5 sm:gap-2">
             <a href={PHONE_NUMBER} className="hidden sm:flex">
-              <Button
-                variant="outline"
-                size="sm"
-                className={`text-xs sm:text-sm h-8 sm:h-9 px-2 sm:px-3 transition-colors ${
+              <button
+                className={`flex items-center text-xs sm:text-sm h-8 sm:h-9 px-2 sm:px-3 rounded-md border transition-colors font-medium ${
                   scrolled
-                    ? 'text-green-700 border-green-300 hover:bg-green-50'
-                    : 'text-white border-white/40 hover:bg-white/10'
+                    ? 'text-green-700 border-green-300 hover:bg-green-50 bg-white'
+                    : 'text-white border-white/40 hover:bg-white/10 bg-transparent'
                 }`}
               >
                 <Phone className="w-3.5 h-3.5 mr-1" />
                 Llamar
-              </Button>
+              </button>
             </a>
             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
               <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm h-8 sm:h-9 px-2.5 sm:px-3">

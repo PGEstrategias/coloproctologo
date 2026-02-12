@@ -50,10 +50,10 @@ function FinalCTASection() {
               </Button>
             </a>
             <a href={PHONE_NUMBER} className="block w-full">
-              <Button variant="outline" size="lg" className="w-full border-white/30 text-white hover:bg-white/10 text-base px-6 py-6">
-                <Phone className="w-4 h-4 mr-2" />
+              <button className="w-full flex items-center justify-center gap-2 bg-transparent border-2 border-white/40 text-white hover:bg-white/10 text-base py-4 rounded-md font-medium transition-colors">
+                <Phone className="w-4 h-4" />
                 Llamar Ahora
-              </Button>
+              </button>
             </a>
           </div>
 

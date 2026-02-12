@@ -28,7 +28,7 @@ function Footer() {
           <div>
             <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3">Ubicaciones</h3>
             <div className="space-y-1 text-xs sm:text-sm text-white/70">
-              <p>Consultorio: [DIRECCIÓN COMPLETA]</p>
+              <p>Av 23 Pte 4303, Belisario Domínguez, 72180 Puebla</p>
               <p>Quirófano: Cielo Medical Center</p>
             </div>
           </div>

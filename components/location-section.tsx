@@ -36,7 +36,7 @@ function LocationSection() {
                   <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-sm sm:text-base text-gray-800">Dirección</p>
-                    <p className="text-sm text-gray-600">[CALLE, NÚMERO, COLONIA]<br />Puebla, Puebla</p>
+                    <p className="text-sm text-gray-600">Av 23 Pte 4303, Belisario Domínguez<br />72180 Heroica Puebla de Zaragoza, Pue.</p>
                   </div>
                 </div>
 
@@ -114,7 +114,7 @@ function LocationSection() {
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 bg-green-50 rounded-lg px-2.5 sm:px-3 py-2 text-xs sm:text-sm">
                 <Landmark className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700">[REFERENCIA]</span>
+                <span className="text-gray-700">Col. Belisario Domínguez</span>
               </div>
             </div>
           </motion.div>

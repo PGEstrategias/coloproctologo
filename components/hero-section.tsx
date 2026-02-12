@@ -1,7 +1,8 @@
 'use client'
 
+import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { Phone, Shield, Clock, Star, Lock } from 'lucide-react'
+import { Phone, Shield, Clock, Star, Lock, Volume2, VolumeX } from 'lucide-react'
 import { Button } from './ui/button'
 
 const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
@@ -9,6 +10,16 @@ const PHONE_NUMBER = "tel:+522225040271"
 const VIDEO_URL = "https://res.cloudinary.com/dwrtldhxd/video/upload/v1770879193/Webinar2_qk3rdt.mp4"
 
 function HeroSection() {
+  const [isMuted, setIsMuted] = useState(true)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted
+      setIsMuted(!isMuted)
+    }
+  }
+
   return (
     <section
       id="hero"
@@ -114,6 +125,7 @@ function HeroSection() {
             {/* Video container - vertical format */}
             <div className="relative w-full max-w-[280px] sm:max-w-[320px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl bg-slate-700">
               <video
+                ref={videoRef}
                 src={VIDEO_URL}
                 autoPlay
                 muted
@@ -121,6 +133,24 @@ function HeroSection() {
                 playsInline
                 className="w-full h-full object-cover"
               />
+              {/* Unmute button */}
+              <button
+                onClick={toggleMute}
+                className="absolute top-3 right-3 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm"
+                aria-label={isMuted ? 'Activar sonido' : 'Silenciar'}
+              >
+                {isMuted ? (
+                  <VolumeX className="w-5 h-5 text-white" />
+                ) : (
+                  <Volume2 className="w-5 h-5 text-white" />
+                )}
+              </button>
+              {/* Tap to unmute hint */}
+              {isMuted && (
+                <div className="absolute top-14 right-3 bg-black/50 text-white text-[10px] px-2 py-1 rounded backdrop-blur-sm">
+                  Toca para escuchar
+                </div>
+              )}
             </div>
 
             {/* Stats card - positioned at bottom */}
