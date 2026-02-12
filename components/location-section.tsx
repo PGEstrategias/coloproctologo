@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { MapPin, Clock, Phone, MessageCircle, Mail, Car, Accessibility, ShieldCheck, Landmark } from 'lucide-react'
+import { MapPin, Clock, Phone, MessageCircle, Car, Accessibility, ShieldCheck, Landmark } from 'lucide-react'
 
 function LocationSection() {
   return (
@@ -43,10 +43,10 @@ function LocationSection() {
                 <div className="flex items-start gap-2.5 sm:gap-3">
                   <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-sm sm:text-base text-gray-800">Horarios</p>
+                    <p className="font-semibold text-sm sm:text-base text-gray-800">Horarios (Previa Cita)</p>
                     <p className="text-sm text-gray-600">
-                      Lunes a Viernes: 9:00 AM - 7:00 PM<br />
-                      Sábados: 9:00 AM - 2:00 PM
+                      Lunes, Martes, Jueves: 5:00 PM - 7:00 PM<br />
+                      Sábados: Por la mañana
                     </p>
                   </div>
                 </div>
@@ -54,33 +54,26 @@ function LocationSection() {
                 <div className="flex items-start gap-2.5 sm:gap-3">
                   <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-sm sm:text-base text-gray-800">Teléfono</p>
-                    <a href="tel:+52XXXXXXXXXX" className="text-sm text-green-700 hover:underline">[NÚMERO CON FORMATO]</a>
+                    <p className="font-semibold text-sm sm:text-base text-gray-800">Urgencias</p>
+                    <a href="tel:+522225040271" className="text-sm text-green-700 hover:underline">222 504 0271</a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-2.5 sm:gap-3">
                   <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-sm sm:text-base text-gray-800">WhatsApp</p>
+                    <p className="font-semibold text-sm sm:text-base text-gray-800">WhatsApp Citas</p>
                     <a
-                      href="https://wa.me/521XXXXXXXXXX"
+                      href="https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-green-700 hover:underline"
                     >
-                      [NÚMERO CON LINK DIRECTO]
+                      222 427 6475
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-2.5 sm:gap-3">
-                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-sm sm:text-base text-gray-800">Email</p>
-                    <a href="mailto:contacto@drfernandez.com" className="text-sm text-green-700 hover:underline">[EMAIL]</a>
-                  </div>
-                </div>
               </div>
             </div>
           </motion.div>
@@ -93,14 +86,16 @@ function LocationSection() {
             transition={{ duration: 0.5 }}
           >
             <div className="bg-slate-200 rounded-xl sm:rounded-2xl overflow-hidden h-64 sm:h-80 lg:h-full min-h-[256px] lg:min-h-[320px]">
-              {/* Replace with actual Google Maps embed */}
-              <div className="w-full h-full flex items-center justify-center bg-slate-100">
-                <div className="text-center text-gray-500">
-                  <MapPin className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 text-gray-400" />
-                  <p className="font-medium text-sm sm:text-base">Google Maps</p>
-                  <p className="text-xs sm:text-sm">Insertar embed de Google Maps aquí</p>
-                </div>
-              </div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.2713356416125!2d-98.2351351!3d19.0518042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc6d880e9c525%3A0xcf41df13067407c4!2sDR%20JOSE%20MANUEL%20FERNANDEZ%20RIVERO%20COLOPROCTOLOGO!5e0!3m2!1ses-419!2smx!4v1770793795044!5m2!1ses-419!2smx"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación del consultorio"
+              />
             </div>
 
             {/* Below map details */}

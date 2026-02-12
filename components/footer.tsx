@@ -10,8 +10,9 @@ function Footer() {
           <div>
             <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3">Dr. José Manuel Fernández Rivero</h3>
             <div className="space-y-1 text-xs sm:text-sm text-white/70">
-              <p>Cédula Profesional: [NÚMERO]</p>
-              <p>Especialidad: Coloproctología</p>
+              <p>Cédula Médico: 2914327</p>
+              <p>Cédula Coloproctología: 4743089</p>
+              <p>Cédula Cirugía General: 4371811</p>
             </div>
           </div>
 
@@ -19,8 +20,7 @@ function Footer() {
           <div>
             <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3">Información Legal</h3>
             <div className="space-y-1 text-xs sm:text-sm text-white/70">
-              <p>Aviso de Funcionamiento COFEPRIS: [NÚMERO]</p>
-              <p>Aviso de Publicidad COFEPRIS: [NÚMERO]</p>
+              <p>COFEPRIS: 2521062002A00018</p>
             </div>
           </div>
 

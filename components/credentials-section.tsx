@@ -12,7 +12,9 @@ const columns = [
       "Más de 10,000 consultas realizadas",
       "Más de 500 cirugías exitosas",
       "Certificado por el Consejo Mexicano de Coloproctología",
-      "Cédula Profesional: [NÚMERO]",
+      "Cédula Médico: 2914327",
+      "Cédula Coloproctología: 4743089",
+      "Cédula Cirugía General: 4371811",
     ],
   },
   {

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { AlertCircle } from 'lucide-react'
 import { Button } from './ui/button'
 
-const WHATSAPP_LINK = "https://wa.me/521XXXXXXXXXX?text=Hola%20Dr.%20Fernández%2C%20URGENTE%20-%20necesito%20una%20valoración%20lo%20antes%20posible."
+const WHATSAPP_LINK = "https://wa.me/522225040271?text=Hola%20Dr.%20Fernández%2C%20URGENTE%20-%20necesito%20una%20valoración%20lo%20antes%20posible."
 
 const symptoms = [
   "Sangrado rectal frecuente o abundante",

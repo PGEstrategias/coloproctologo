@@ -4,8 +4,9 @@ import { motion } from 'framer-motion'
 import { Phone, Shield, Clock, Star, Lock } from 'lucide-react'
 import { Button } from './ui/button'
 
-const WHATSAPP_LINK = "https://wa.me/521XXXXXXXXXX?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20valoración."
-const PHONE_NUMBER = "tel:+52XXXXXXXXXX"
+const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
+const PHONE_NUMBER = "tel:+522225040271"
+const VIDEO_URL = "https://res.cloudinary.com/dwrtldhxd/video/upload/v1770879193/Webinar2_qk3rdt.mp4"
 
 function HeroSection() {
   return (
@@ -73,14 +74,12 @@ function HeroSection() {
                 </Button>
               </a>
               <a href={PHONE_NUMBER} className="w-full">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="w-full border-white/30 text-white hover:bg-white/10 text-base py-6"
+                <button
+                  className="w-full flex items-center justify-center gap-2 bg-transparent border-2 border-white/40 text-white hover:bg-white/10 text-base py-4 rounded-md font-medium transition-colors"
                 >
-                  <Phone className="w-4 h-4 mr-2" />
+                  <Phone className="w-4 h-4" />
                   Llamar Ahora
-                </Button>
+                </button>
               </a>
             </div>
 
@@ -105,27 +104,27 @@ function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Right column - Video placeholder */}
+          {/* Right column - Video */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative w-full"
+            className="relative w-full flex justify-center"
           >
-            {/* Video container */}
-            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl bg-slate-700">
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-green-800/50 to-slate-800/50">
-                <div className="text-center text-white">
-                  <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-                    <div className="w-0 h-0 border-l-[16px] border-l-white border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent ml-1" />
-                  </div>
-                  <p className="text-xs text-white/70">Video del Dr. Fernández</p>
-                </div>
-              </div>
+            {/* Video container - vertical format */}
+            <div className="relative w-full max-w-[280px] sm:max-w-[320px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl bg-slate-700">
+              <video
+                src={VIDEO_URL}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              />
             </div>
 
-            {/* Stats card - positioned inside container */}
-            <div className="absolute bottom-2 left-2 bg-white rounded-lg p-3 shadow-xl max-w-[160px]">
+            {/* Stats card - positioned at bottom */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white rounded-lg p-3 shadow-xl">
               <div className="flex items-center gap-2">
                 <div className="w-9 h-9 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="text-green-600 font-bold text-xs">500+</span>

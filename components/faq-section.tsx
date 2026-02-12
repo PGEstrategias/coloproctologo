@@ -14,8 +14,8 @@ const faqs = [
     answer: `Depende del procedimiento y tu tipo de trabajo:\n\n• Trabajo de oficina/escritorio: 5-7 días\n• Trabajo que requiere estar de pie: 10-14 días\n• Trabajo físico pesado: 3-4 semanas\n\nLa mayoría de mis pacientes se operan viernes y para el lunes siguiente ya están haciendo trabajo ligero desde casa.`,
   },
   {
-    question: "¿Cuánto cuesta la cirugía?",
-    answer: `El costo varía según el procedimiento exacto y tu caso específico.\n\nConsulta de valoración: $1,200\nPaquete quirúrgico (aproximado): $30,000\n\nIncluye: Honorarios médicos, anestesiólogo, quirófano, hospitalización, medicamentos básicos.\n\nTrabajo con algunos seguros (GNP, BUPA) y acepto:\n✅ Pago con tarjeta de crédito\n✅ Financiamiento disponible\n\nEn tu valoración te daré un presupuesto exacto para tu caso.`,
+    question: "¿Trabajan con seguros médicos?",
+    answer: `Trabajo con algunos seguros como GNP y BUPA.\n\nEn tu valoración te ayudo con toda la documentación necesaria para tu aseguradora.\n\nTambién acepto:\n✅ Pago con tarjeta de crédito\n✅ Financiamiento disponible\n\nContáctame para más información sobre costos y opciones de pago.`,
   },
   {
     question: "¿Es realmente necesario operarme o hay otras opciones?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: "¿Cómo sé que puedo confiar en ti?",
-    answer: `Entiendo perfectamente esta preocupación. Es tu cuerpo y tu salud.\n\nLo que puedo ofrecerte:\n✅ Cédula profesional: [NÚMERO]\n✅ 20 años de experiencia comprobable\n✅ Más de 500 cirugías exitosas\n✅ Consultorio y quirófano certificados\n✅ Avisos de COFEPRIS al día\n✅ Testimonios reales de pacientes\n✅ Primera consulta sin compromiso\n\nTe invito a que vengas a conocerme. Si después de la valoración no te sientes cómodo, no hay ningún compromiso de continuar.`,
+    answer: `Entiendo perfectamente esta preocupación. Es tu cuerpo y tu salud.\n\nLo que puedo ofrecerte:\n✅ Cédula Médico: 2914327\n✅ Cédula Coloproctología: 4743089\n✅ Cédula Cirugía General: 4371811\n✅ 20 años de experiencia comprobable\n✅ Más de 500 cirugías exitosas\n✅ Consultorio y quirófano certificados\n✅ COFEPRIS: 2521062002A00018\n✅ Testimonios reales de pacientes\n\nTe invito a que vengas a conocerme. Si después de la valoración no te sientes cómodo, no hay ningún compromiso de continuar.`,
   },
   {
     question: "¿La consulta es privada y confidencial?",

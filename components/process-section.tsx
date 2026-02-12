@@ -4,13 +4,13 @@ import { motion } from 'framer-motion'
 import { ClipboardList, TestTube, CalendarDays, Stethoscope, Home, UserCheck } from 'lucide-react'
 import { Button } from './ui/button'
 
-const WHATSAPP_LINK = "https://wa.me/521XXXXXXXXXX?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20valoración."
+const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
 
 const steps = [
   {
     icon: ClipboardList,
     step: "PASO 1",
-    title: "Valoración Inicial ($1,200)",
+    title: "Valoración Inicial",
     includes: [
       "Consulta completa de 30-40 minutos",
       "Revisión de tu historial médico",

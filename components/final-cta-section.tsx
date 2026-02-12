@@ -1,11 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Phone, Clock, Calendar, DollarSign, Lock } from 'lucide-react'
+import { Phone, Clock, Calendar, Lock, Shield } from 'lucide-react'
 import { Button } from './ui/button'
 
-const WHATSAPP_LINK = "https://wa.me/521XXXXXXXXXX?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20valoración."
-const PHONE_NUMBER = "tel:+52XXXXXXXXXX"
+const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
+const PHONE_NUMBER = "tel:+522225040271"
 
 function FinalCTASection() {
   return (
@@ -68,8 +68,8 @@ function FinalCTASection() {
               <span>Disponible esta semana</span>
             </span>
             <span className="flex items-center gap-1 justify-center sm:justify-start">
-              <DollarSign className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
-              <span>Consulta: $1,200</span>
+              <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
+              <span>COFEPRIS Autorizado</span>
             </span>
             <span className="flex items-center gap-1 justify-center sm:justify-start">
               <Lock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />

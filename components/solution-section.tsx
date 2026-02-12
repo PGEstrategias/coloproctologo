@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { Check, Clock, Scissors, Heart, Activity } from 'lucide-react'
 import { Button } from './ui/button'
 
-const WHATSAPP_LINK = "https://wa.me/521XXXXXXXXXX?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20valoración."
+const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
 
 const benefits = [
   { icon: Heart, text: "Menos dolor post-operatorio (la mayoría lo describe como \"molestia manejable\")" },

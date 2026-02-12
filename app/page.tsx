@@ -17,7 +17,7 @@ import LocationSection from "@/components/location-section"
 import FinalCTASection from "@/components/final-cta-section"
 import Footer from "@/components/footer"
 
-const WHATSAPP_LINK = "https://wa.me/521XXXXXXXXXX?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20valoración."
+const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
 
 export default function Home() {
   return (
