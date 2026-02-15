@@ -21,7 +21,7 @@ const comparison = {
   },
   after: {
     title: "Cirugía Mínimamente Invasiva",
-    items: ["Incisiones mínimas", "Molestia manejable", "3-7 días de recuperación", "Complicaciones mínimas", "Ambulatorio o 1 día"],
+    items: ["Incisiones mínimas", "Molestia manejable", "3-7 días de recuperación", "Complicaciones mínimas", "1 día en observación"],
   },
 }
 
@@ -113,7 +113,7 @@ function SolutionSection() {
           <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-900 mb-6 sm:mb-8">Timeline de Recuperación</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
             {[
-              { day: "Día 1", desc: "Cirugía ambulatoria", color: "bg-blue-500" },
+              { day: "Día 1", desc: "Cirugía + observación", color: "bg-blue-500" },
               { day: "Día 3-5", desc: "Molestia leve controlada", color: "bg-yellow-500" },
               { day: "Día 7", desc: "Vuelta al trabajo", color: "bg-green-500" },
               { day: "Semana 3-4", desc: "Recuperación completa", color: "bg-green-600" },

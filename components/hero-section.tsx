@@ -105,7 +105,7 @@ function HeroSection() {
               <div className="flex flex-wrap gap-x-4 gap-y-1">
                 <span className="flex items-center gap-1">
                   <Clock className="w-3 h-3 text-green-400" />
-                  Atención mismo día
+                  Agenda tu cita
                 </span>
                 <span className="flex items-center gap-1">
                   <Lock className="w-3 h-3 text-green-400" />

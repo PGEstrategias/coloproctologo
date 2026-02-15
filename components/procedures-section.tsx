@@ -19,8 +19,8 @@ const procedures = [
     ],
     recovery: {
       procedure: "30-45 minutos",
-      hospital: "Ambulatorio o 1 día",
-      light: "5-7 días",
+      hospital: "1 día en observación",
+      light: "Pocos días",
       full: "2-3 semanas",
     },
   },
@@ -35,8 +35,8 @@ const procedures = [
     ],
     recovery: {
       procedure: "45-60 minutos",
-      hospital: "1 día",
-      light: "7-10 días",
+      hospital: "1 día en observación",
+      light: "Pocos días",
       full: "3-4 semanas",
     },
   },
