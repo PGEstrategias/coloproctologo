@@ -3,6 +3,24 @@
 import { motion } from 'framer-motion'
 import { MapPin, Clock, Phone, MessageCircle, Car, Accessibility, ShieldCheck, Landmark } from 'lucide-react'
 
+const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
+const PHONE_NUMBER = "tel:+522225040271"
+
+const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  e.preventDefault()
+  if (typeof window !== 'undefined' && (window as any).gtagWhatsAppConversion) {
+    (window as any).gtagWhatsAppConversion(WHATSAPP_LINK)
+  } else {
+    window.open(WHATSAPP_LINK, '_blank')
+  }
+}
+
+const handleCallClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  if (typeof window !== 'undefined' && (window as any).gtagCallConversion) {
+    (window as any).gtagCallConversion(PHONE_NUMBER)
+  }
+}
+
 function LocationSection() {
   return (
     <section id="contacto" className="w-full py-12 sm:py-16 lg:py-24 bg-white">
@@ -55,7 +73,7 @@ function LocationSection() {
                   <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-sm sm:text-base text-gray-800">Urgencias</p>
-                    <a href="tel:+522225040271" className="text-sm text-green-700 hover:underline">222 504 0271</a>
+                    <a href={PHONE_NUMBER} className="text-sm text-green-700 hover:underline" onClick={handleCallClick}>222 504 0271</a>
                   </div>
                 </div>
 
@@ -64,10 +82,11 @@ function LocationSection() {
                   <div>
                     <p className="font-semibold text-sm sm:text-base text-gray-800">WhatsApp Citas</p>
                     <a
-                      href="https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
+                      href={WHATSAPP_LINK}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-green-700 hover:underline"
+                      onClick={handleWhatsAppClick}
                     >
                       222 427 6475
                     </a>

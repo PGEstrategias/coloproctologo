@@ -7,6 +7,15 @@ import { Button } from './ui/button'
 
 const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
 
+const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  e.preventDefault()
+  if (typeof window !== 'undefined' && (window as any).gtagWhatsAppConversion) {
+    (window as any).gtagWhatsAppConversion(WHATSAPP_LINK)
+  } else {
+    window.open(WHATSAPP_LINK, '_blank')
+  }
+}
+
 const procedures = [
   {
     title: "Hemorroidectomía",
@@ -147,7 +156,7 @@ function ProcedureCard({ procedure }: { procedure: typeof procedures[0] }) {
               </div>
 
               {/* CTA */}
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block" onClick={handleWhatsAppClick}>
                 <Button className="w-full bg-green-600 hover:bg-green-700 text-white mt-1 sm:mt-2 min-h-[44px] text-sm sm:text-base">
                   AGENDAR VALORACIÓN
                   <ArrowRight className="w-4 h-4 ml-2" />

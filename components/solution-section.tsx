@@ -6,6 +6,15 @@ import { Button } from './ui/button'
 
 const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
 
+const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  e.preventDefault()
+  if (typeof window !== 'undefined' && (window as any).gtagWhatsAppConversion) {
+    (window as any).gtagWhatsAppConversion(WHATSAPP_LINK)
+  } else {
+    window.open(WHATSAPP_LINK, '_blank')
+  }
+}
+
 const benefits = [
   { icon: Heart, text: "Menos dolor post-operatorio (la mayoría lo describe como \"molestia manejable\")" },
   { icon: Clock, text: "Recuperación 3-5 veces más rápida que antes" },
@@ -133,7 +142,7 @@ function SolutionSection() {
         </p>
 
         <div className="text-center">
-          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block w-full sm:inline-block sm:w-auto">
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block w-full sm:inline-block sm:w-auto" onClick={handleWhatsAppClick}>
             <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white text-base px-6 py-5 shadow-lg">
               AGENDAR VALORACIÓN
             </Button>

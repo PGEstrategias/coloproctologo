@@ -11,6 +11,21 @@ const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2
 const PHONE_NUMBER = "tel:+522225040271"
 const LOGO_URL = "https://res.cloudinary.com/dxcr9utre/image/upload/v1770793713/WhatsApp_Image_2026-02-11_at_1.07.21_AM_jrjeyx.jpg"
 
+const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  e.preventDefault()
+  if (typeof window !== 'undefined' && (window as any).gtagWhatsAppConversion) {
+    (window as any).gtagWhatsAppConversion(WHATSAPP_LINK)
+  } else {
+    window.open(WHATSAPP_LINK, '_blank')
+  }
+}
+
+const handleCallClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  if (typeof window !== 'undefined' && (window as any).gtagCallConversion) {
+    (window as any).gtagCallConversion(PHONE_NUMBER)
+  }
+}
+
 const navLinks = [
   { label: "Inicio", href: "#hero" },
   { label: "Procedimientos", href: "#procedimientos" },
@@ -91,7 +106,7 @@ function Header() {
           </nav>
 
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <a href={PHONE_NUMBER} className="hidden sm:flex">
+            <a href={PHONE_NUMBER} className="hidden sm:flex" onClick={handleCallClick}>
               <button
                 className={`flex items-center text-xs sm:text-sm h-8 sm:h-9 px-2 sm:px-3 rounded-md border transition-colors font-medium ${
                   scrolled
@@ -103,7 +118,7 @@ function Header() {
                 Llamar
               </button>
             </a>
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
               <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm h-8 sm:h-9 px-2.5 sm:px-3">
                 Agendar Cita
               </Button>
@@ -168,12 +183,12 @@ function Header() {
             </nav>
 
             <div className="p-4 border-t space-y-2.5">
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block" onClick={handleWhatsAppClick}>
                 <Button className="w-full bg-green-600 hover:bg-green-700 text-white text-base py-5 min-h-[48px]">
                   Agendar Valoración
                 </Button>
               </a>
-              <a href={PHONE_NUMBER} className="block">
+              <a href={PHONE_NUMBER} className="block" onClick={handleCallClick}>
                 <Button variant="outline" className="w-full border-green-300 text-green-700 text-base py-5 min-h-[48px]">
                   <Phone className="w-4 h-4 mr-2" />
                   Llamar Ahora

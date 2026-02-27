@@ -7,6 +7,21 @@ import { Button } from './ui/button'
 const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
 const PHONE_NUMBER = "tel:+522225040271"
 
+const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  e.preventDefault()
+  if (typeof window !== 'undefined' && (window as any).gtagWhatsAppConversion) {
+    (window as any).gtagWhatsAppConversion(WHATSAPP_LINK)
+  } else {
+    window.open(WHATSAPP_LINK, '_blank')
+  }
+}
+
+const handleCallClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  if (typeof window !== 'undefined' && (window as any).gtagCallConversion) {
+    (window as any).gtagCallConversion(PHONE_NUMBER)
+  }
+}
+
 function FinalCTASection() {
   return (
     <section className="w-full py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-green-900 text-white">
@@ -44,12 +59,12 @@ function FinalCTASection() {
 
           {/* CTAs - full width on mobile */}
           <div className="flex flex-col gap-3 mb-6 sm:mb-8">
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block w-full">
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block w-full" onClick={handleWhatsAppClick}>
               <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 text-white text-base px-6 py-6 shadow-lg shadow-green-600/30">
                 AGENDAR CITA
               </Button>
             </a>
-            <a href={PHONE_NUMBER} className="block w-full">
+            <a href={PHONE_NUMBER} className="block w-full" onClick={handleCallClick}>
               <button className="w-full flex items-center justify-center gap-2 bg-transparent border-2 border-white/40 text-white hover:bg-white/10 text-base py-4 rounded-md font-medium transition-colors">
                 <Phone className="w-4 h-4" />
                 Llamar Ahora

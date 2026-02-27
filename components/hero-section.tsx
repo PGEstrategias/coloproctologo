@@ -9,6 +9,21 @@ const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2
 const PHONE_NUMBER = "tel:+522225040271"
 const VIDEO_URL = "https://res.cloudinary.com/dwrtldhxd/video/upload/v1770879193/Webinar2_qk3rdt.mp4"
 
+const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  e.preventDefault()
+  if (typeof window !== 'undefined' && (window as any).gtagWhatsAppConversion) {
+    (window as any).gtagWhatsAppConversion(WHATSAPP_LINK)
+  } else {
+    window.open(WHATSAPP_LINK, '_blank')
+  }
+}
+
+const handleCallClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  if (typeof window !== 'undefined' && (window as any).gtagCallConversion) {
+    (window as any).gtagCallConversion(PHONE_NUMBER)
+  }
+}
+
 function HeroSection() {
   const [isMuted, setIsMuted] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -76,7 +91,7 @@ function HeroSection() {
 
             {/* CTA Buttons - stacked on mobile */}
             <div className="flex flex-col gap-3 mb-6">
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full" onClick={handleWhatsAppClick}>
                 <Button
                   size="lg"
                   className="w-full bg-green-600 hover:bg-green-700 text-white text-base py-6 shadow-lg"
@@ -84,7 +99,7 @@ function HeroSection() {
                   AGENDAR CITA
                 </Button>
               </a>
-              <a href={PHONE_NUMBER} className="w-full">
+              <a href={PHONE_NUMBER} className="w-full" onClick={handleCallClick}>
                 <button
                   className="w-full flex items-center justify-center gap-2 bg-transparent border-2 border-white/40 text-white hover:bg-white/10 text-base py-4 rounded-md font-medium transition-colors"
                 >
