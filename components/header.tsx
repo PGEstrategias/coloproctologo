@@ -32,6 +32,7 @@ const navLinks = [
   { label: "Proceso", href: "#proceso" },
   { label: "Testimonios", href: "#testimonios" },
   { label: "FAQ", href: "#faq" },
+  { label: "Blog", href: "/blog" },
   { label: "Contacto", href: "#contacto" },
 ]
 
