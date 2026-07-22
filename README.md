@@ -1,15 +1,18 @@
-## wave.consult
-A landing page for a consulting agency enterprise, with some animations and most landing page default sections.
+## Dr. José Manuel Fernández — Coloproctólogo
 
-![image](https://github.com/joaorodrs/wave-consult/assets/64229622/2386a128-6019-4d08-9dc2-e75467c957cb)
+Landing page del Dr. José Manuel Fernández, coloproctólogo en Puebla, con sección de blog.
 
-## Structure
+## Estructura
 - React
-- Typescript
-- Next
+- TypeScript
+- Next.js
 - Framer Motion
 - ShadcnUI
 - TailwindCSS
 
-## Design
-Heavly inspired by [this Figma community project](https://www.figma.com/community/file/1330188068589982408) by [Seju](https://www.figma.com/@sejal_ui_ux)
+## Desarrollo
+
+```bash
+npm install
+npm run dev
+```
