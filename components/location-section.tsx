@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { MapPin, Clock, Phone, MessageCircle, Car, Accessibility, ShieldCheck, Landmark } from 'lucide-react'
 
-const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
+const WHATSAPP_LINK = "https://wa.me/522222963593?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
 const PHONE_NUMBER = "tel:+522225040271"
 
 const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -88,7 +88,7 @@ function LocationSection() {
                       className="text-sm text-green-700 hover:underline"
                       onClick={handleWhatsAppClick}
                     >
-                      222 427 6475
+                      222 296 3593
                     </a>
                   </div>
                 </div>

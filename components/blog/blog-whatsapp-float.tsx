@@ -2,7 +2,7 @@
 
 import { MessageCircle } from "lucide-react"
 
-const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
+const WHATSAPP_LINK = "https://wa.me/522222963593?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
 
 function BlogWhatsAppFloat() {
   return (

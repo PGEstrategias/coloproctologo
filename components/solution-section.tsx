@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { Check, Clock, Scissors, Heart, Activity } from 'lucide-react'
 import { Button } from './ui/button'
 
-const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
+const WHATSAPP_LINK = "https://wa.me/522222963593?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
 
 const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
   e.preventDefault()

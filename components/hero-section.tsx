@@ -5,9 +5,9 @@ import { motion } from 'framer-motion'
 import { Phone, Shield, Clock, Star, Lock, Volume2, VolumeX } from 'lucide-react'
 import { Button } from './ui/button'
 
-const WHATSAPP_LINK = "https://wa.me/522224276475?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
+const WHATSAPP_LINK = "https://wa.me/522222963593?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
 const PHONE_NUMBER = "tel:+522225040271"
-const VIDEO_URL = "https://res.cloudinary.com/dwrtldhxd/video/upload/v1770879193/Webinar2_qk3rdt.mp4"
+const VIDEO_URL = "https://res.cloudinary.com/djduba5fd/video/upload/v1779379006/Webinar2_unozlf.mp4"
 
 const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
   e.preventDefault()
