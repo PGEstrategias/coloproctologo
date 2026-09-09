@@ -4,7 +4,9 @@ import Link from "next/link"
 import ArticleFaqSection from "@/components/blog/article-faq"
 import type { ArticleFaq } from "@/components/blog/article-schema"
 import ArticleToc, { type TocItem } from "@/components/blog/article-toc"
+import RelatedPosts from "@/components/blog/related-posts"
 import { WHATSAPP_LINK, doctor, whatsappLinkArticulo } from "@/config/site"
+import type { Silo } from "@/lib/blog-posts"
 
 interface BlogPostLayoutProps {
   category: string
@@ -25,6 +27,13 @@ interface BlogPostLayoutProps {
    * qué contenido generó el lead sin instrumentación adicional.
    */
   tema?: string
+  /**
+   * Silo del que listar "Temas relacionados" al final. Lo usan los pilares,
+   * que por norma enlazan a todos sus satélites.
+   */
+  relacionadosDe?: Silo
+  /** Slug propio, para no autoenlazarse en "Temas relacionados". */
+  slug?: string
 }
 
 function BlogPostLayout({
@@ -40,6 +49,8 @@ function BlogPostLayout({
   toc,
   faqs,
   tema,
+  relacionadosDe,
+  slug,
 }: BlogPostLayoutProps) {
   const ctaHref = tema ? whatsappLinkArticulo(tema) : WHATSAPP_LINK
 
@@ -103,6 +114,9 @@ function BlogPostLayout({
         <article className="prose-article max-w-3xl mx-auto px-4 sm:px-6 space-y-10 sm:space-y-14">
           {children}
           {faqs && faqs.length > 0 && <ArticleFaqSection faqs={faqs} />}
+          {relacionadosDe && slug && (
+            <RelatedPosts silo={relacionadosDe} slugActual={slug} />
+          )}
         </article>
       </section>
 

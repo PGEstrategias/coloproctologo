@@ -3,13 +3,14 @@ import type { Metadata } from "next"
 import ArticleSchema, { type ArticleFaq } from "@/components/blog/article-schema"
 import type { TocItem } from "@/components/blog/article-toc"
 import BlogPostLayout from "@/components/blog/blog-post-layout"
+import Link from "next/link"
 import TreatmentBlock from "@/components/blog/treatment-block"
 import { blogPosts } from "@/lib/blog-posts"
 
 const post = blogPosts.find((p) => p.slug === "primera-consulta-proctologo")!
 
 export const metadata: Metadata = {
-  title: "Tu primera consulta con el proctólogo: qué esperar",
+  title: { absolute: post.seoTitle },
   description: post.description,
 }
 
@@ -21,6 +22,7 @@ const toc: TocItem[] = [
   { id: "que-llevar", label: "Qué llevar" },
   { id: "te-preguntaran", label: "Qué te van a preguntar" },
   { id: "deberias-preguntar", label: "Qué deberías preguntar tú" },
+  { id: "despues", label: "Qué pasa después de la consulta" },
   { id: "preguntas-frecuentes", label: "Preguntas frecuentes" },
 ]
 
@@ -95,6 +97,9 @@ export default function Page() {
           </p>
           <p className="text-gray-700 mt-3">
             Ese retraso rara vez cambia el desenlace de una hemorroide. Sí lo cambia en un tumor.
+          </p>
+          <p className="text-gray-700 mt-3">
+            Es el motivo por el que buena parte de los pacientes que llegan a una consulta de coloproctología en Puebla lo hacen después de meses de automedicarse. No por falta de información, sino por incomodidad con la idea de la exploración.
           </p>
           <p className="text-gray-700 mt-3">
             Vale la pena decirlo con claridad: <strong>para el especialista esta es una consulta rutinaria.</strong> Es lo que hace todos los días, varias veces al día. No hay nada que le vayas a mostrar que no haya visto.
@@ -201,6 +206,28 @@ export default function Page() {
               </li>
             ))}
           </ul>
+        </div>
+
+        <div>
+          <h2 id="despues" className="scroll-mt-24 text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+            Qué pasa después de la consulta
+          </h2>
+          <p className="text-gray-700">
+            Sales con tres cosas: un diagnóstico, un plan y una idea clara de qué esperar. En la mayoría de las consultas de coloproctología en Puebla, ese plan no incluye cirugía.
+          </p>
+          <p className="text-gray-700 mt-3">
+            Si lo encontrado explica por completo tu síntoma, el tratamiento empieza ese mismo día. Si no lo explica —por ejemplo, un sangrado que no corresponde a lo que se ve en la exploración— se solicita el estudio que corresponda antes de tratar nada. Ese orden importa: tratar el síntoma sin haber descartado la causa es lo que produce diagnósticos tardíos.
+          </p>
+          <p className="text-gray-700 mt-3">
+            También sales sabiendo qué vigilar en casa y en qué momento volver. Si tu motivo de consulta fue el{" "}
+            <Link href="/blog/sangrado-al-evacuar-causas" className="text-green-700 underline underline-offset-2 hover:text-green-800">
+              sangrado al evacuar
+            </Link>
+            , ahí encontrarás qué señales ameritan regresar antes de la cita de control.
+          </p>
+          <p className="text-gray-700 mt-3">
+            Una última cosa que conviene decir: la consulta no compromete a nada. Puedes escuchar el diagnóstico, tomarte tu tiempo y decidir después. Lo que no conviene es seguir sin saber qué tienes.
+          </p>
         </div>
       </BlogPostLayout>
     </>

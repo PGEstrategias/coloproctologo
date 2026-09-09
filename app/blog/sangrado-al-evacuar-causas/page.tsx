@@ -11,7 +11,7 @@ import { blogPosts } from "@/lib/blog-posts"
 const post = blogPosts.find((p) => p.slug === "sangrado-al-evacuar-causas")!
 
 export const metadata: Metadata = {
-  title: "Sangrado al evacuar: causas y cuándo preocuparse",
+  title: { absolute: post.seoTitle },
   description: post.description,
 }
 
@@ -21,8 +21,10 @@ const toc: TocItem[] = [
   { id: "dolor", label: "Con dolor o sin dolor: el dato que más orienta" },
   { id: "cuando-acudir", label: "Señales de alarma" },
   { id: "como-se-trata", label: "Cómo se estudia un sangrado anal" },
+  { id: "cuanto-es-mucho", label: "Cuánta sangre es demasiada" },
   { id: "que-hacer", label: "Qué hacer hoy" },
   { id: "preguntas-frecuentes", label: "Preguntas frecuentes" },
+  { id: "temas-relacionados", label: "Temas relacionados" },
 ]
 
 const faqs: ArticleFaq[] = [
@@ -81,6 +83,8 @@ export default function Page() {
         readTime={post.readTime}
         toc={toc}
         faqs={faqs}
+        relacionadosDe={post.category}
+        slug={post.slug}
         tema="sangrado al evacuar"
         ctaTitle="No tienes que vivir con esto"
         ctaSubtitle="La mayoría de los sangrados anales tienen causa benigna, pero el diagnóstico se hace en consultorio, no por suposición. La valoración es discreta y toma menos de 30 minutos."
@@ -174,7 +178,10 @@ export default function Page() {
             </table>
           </div>
           <p className="text-gray-700 mt-4">
-            Esta tabla orienta. No diagnostica. La exploración proctológica es la que define.
+            Esta tabla orienta. No diagnostica. La exploración proctológica es la que define, y por eso conviene llegar a la consulta con el dato observado en vez de con la conclusión ya sacada.
+          </p>
+          <p className="text-gray-700 mt-3">
+            Un matiz que importa: <strong>tener hemorroides no descarta nada.</strong> Casi todos los adultos las tienen en algún grado, así que encontrarlas en la exploración no explica automáticamente el sangrado. Si lo observado no corresponde a lo que describes, se estudia el colon aunque las hemorroides estén ahí. Ese es el error que más retrasa diagnósticos en Puebla y en cualquier otro lado.
           </p>
         </div>
 
@@ -207,7 +214,42 @@ export default function Page() {
           <p>
             El objetivo de la consulta no es solo tratar el síntoma. Es <strong>descartar lo grave primero</strong>.
           </p>
+          <p>
+            En una consulta de coloproctología en Puebla, los dos primeros pasos se resuelven el mismo día y en el mismo consultorio. La colonoscopia, cuando está indicada, se programa aparte porque requiere preparación previa.
+          </p>
         </TreatmentBlock>
+
+
+        <div>
+          <h2 id="cuanto-es-mucho" className="scroll-mt-24 text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+            Cuánta sangre es demasiada
+          </h2>
+          <p className="text-gray-700">
+            Es la pregunta que más cuesta responder por cuenta propia, porque la sangre en el agua del inodoro se dispersa y siempre parece más de la que es. Unas gotas tiñen todo el recipiente.
+          </p>
+          <p className="text-gray-700 mt-3">
+            Por eso el dato útil no es la impresión visual, sino el patrón. Estas son las referencias que sirven en consulta:
+          </p>
+          <ul className="space-y-2 mt-3">
+            {[
+              "Manchar el papel al limpiarte, sin que caiga sangre al agua. Es lo más frecuente y casi siempre corresponde a fisura o a hemorroide.",
+              "Goteo al terminar de evacuar. Sugiere hemorroide interna y merece valoración, aunque no sea urgente.",
+              "Sangre que sale sin evacuar, o que empapa la ropa interior. Requiere atención pronta.",
+              "Sangrado con mareo, palidez o palpitaciones. Es urgencia: acude a un servicio de urgencias, no a consulta programada.",
+            ].map((s) => (
+              <li key={s} className="flex gap-2 text-gray-700">
+                <span className="text-green-600 flex-shrink-0" aria-hidden="true">•</span>
+                <span>{s}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="text-gray-700 mt-4">
+            Hay un matiz que conviene tener claro: <strong>la cantidad no se correlaciona con la gravedad de la causa.</strong> Una hemorroide puede sangrar de forma llamativa y ser completamente benigna. Un tumor puede sangrar tan poco que solo se detecte por anemia en un análisis de rutina.
+          </p>
+          <p className="text-gray-700 mt-3">
+            De ahí que el criterio para acudir no sea cuánta sangre viste, sino qué la acompaña: la edad, el color, si va mezclada, y si hay cambios en tu hábito intestinal. Eso es lo que decide qué tan a fondo hay que estudiar.
+          </p>
+        </div>
 
         <div>
           <h2 id="que-hacer" className="scroll-mt-24 text-xl sm:text-2xl font-bold text-gray-900 mb-3">

@@ -11,7 +11,7 @@ import { blogPosts } from "@/lib/blog-posts"
 const post = blogPosts.find((p) => p.slug === "hemorroides-guia-completa")!
 
 export const metadata: Metadata = {
-  title: "Hemorroides: síntomas, grados y tratamiento",
+  title: { absolute: post.seoTitle },
   description: post.description,
 }
 
@@ -25,6 +25,7 @@ const toc: TocItem[] = [
   { id: "como-se-trata", label: "Tratamiento según el grado" },
   { id: "cuando-acudir", label: "Cuándo acudir al proctólogo" },
   { id: "preguntas-frecuentes", label: "Preguntas frecuentes" },
+  { id: "temas-relacionados", label: "Temas relacionados" },
 ]
 
 const faqs: ArticleFaq[] = [
@@ -73,6 +74,8 @@ export default function Page() {
         readTime={post.readTime}
         toc={toc}
         faqs={faqs}
+        relacionadosDe={post.category}
+        slug={post.slug}
         tema="hemorroides"
         ctaTitle="No tienes que vivir con esto"
         ctaSubtitle="La mayoría de los casos de enfermedad hemorroidal se resuelven sin cirugía cuando se atienden a tiempo. La valoración es discreta y toma menos de 30 minutos."
@@ -94,7 +97,7 @@ export default function Page() {
             El problema empieza cuando esos cojinetes se inflaman, se dilatan o se desplazan. A eso se le llama <strong>enfermedad hemorroidal</strong>, y es el motivo de consulta más frecuente en coloproctología.
           </p>
           <p className="text-gray-700 mt-3">
-            Que sea frecuente no significa que sea inofensivo. Significa que es tratable.
+            Que sea frecuente no significa que sea inofensivo. Significa que es tratable, y es el motivo de consulta que más se ve en coloproctología en Puebla.
           </p>
         </div>
 
@@ -145,7 +148,10 @@ export default function Page() {
             ))}
           </div>
           <p className="text-gray-700 mt-4">
-            Esta escala es la razón por la que dos personas con &ldquo;hemorroides&rdquo; reciben tratamientos completamente distintos. Un grado I se maneja con dieta y un procedimiento de consultorio de 10 minutos. Un grado IV requiere quirófano.
+            Esta escala es la razón por la que dos personas con &ldquo;hemorroides&rdquo; reciben tratamientos completamente distintos. Un grado I se maneja con dieta y un procedimiento de consultorio breve. Un grado IV requiere quirófano.
+          </p>
+          <p className="text-gray-700 mt-3">
+            El grado tampoco se corresponde con la molestia. Hay pacientes con grado II que sangran mucho y consultan de inmediato, y pacientes con grado IV que llevan años acostumbrados y no lo mencionan hasta que se les pregunta. Por eso la clasificación se hace con anoscopía y no con la descripción del síntoma: es el único modo de saber qué tratamiento corresponde.
           </p>
         </div>
 
@@ -196,7 +202,7 @@ export default function Page() {
             ))}
           </ul>
           <p className="text-gray-700">
-            Ninguna de esas señales significa cáncer automáticamente. Significan que hace falta descartar. Si tu síntoma principal es el sangrado, revisa nuestra guía sobre{" "}
+            Ninguna de esas señales significa cáncer automáticamente. Significan que hace falta descartar, y que el descarte se hace con exploración, no con suposición. Es la razón por la que un sangrado que llevas meses atribuyendo a hemorroides merece una consulta aunque no duela y aunque haya cedido solo. Si tu síntoma principal es el sangrado, revisa nuestra guía sobre{" "}
             <Link href="/blog/sangrado-al-evacuar-causas" className="text-green-700 underline underline-offset-2 hover:text-green-800">
               sangrado al evacuar
             </Link>
@@ -242,10 +248,13 @@ export default function Page() {
           <p>
             <strong>En todos los casos:</strong> el objetivo no es &ldquo;quitar las hemorroides&rdquo;. Es corregir la causa que las está congestionando. Si no se corrige el estreñimiento, vuelven.
           </p>
+          <p>
+            La valoración con un coloproctólogo en Puebla resuelve las dos cosas en la misma consulta: establece el grado con anoscopía y define qué manejo corresponde. Es una visita corta, y en la mayoría de los casos el plan que sale de ella no incluye quirófano.
+          </p>
         </TreatmentBlock>
 
         <RedFlags
-          titulo="Cuándo acudir al proctólogo en Puebla"
+          titulo="Cuándo acudir al proctólogo"
           intro="Acude sin esperar si presentas:"
           senales={[
             "Sangrado por primera vez, a cualquier edad",

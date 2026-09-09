@@ -40,9 +40,11 @@ de ella dependen el `sitemap.xml`, las URLs del schema y los breadcrumbs.
 | Tabla de contenido | `components/blog/article-toc.tsx` |
 | Bloque de señales de alarma | `components/blog/red-flags.tsx` |
 | Bloque "cómo se trata" + enlace interno | `components/blog/treatment-block.tsx` |
+| Bloque "temas relacionados" | `components/blog/related-posts.tsx` |
 | FAQ visible | `components/blog/article-faq.tsx` |
 | Tipografía del cuerpo | `.prose-article` en `app/globals.css` |
 | Sitemap y robots | `app/sitemap.ts`, `app/robots.ts` |
+| Verificador de la norma | `scripts/qa-blog.mjs` |
 
 `config/site.ts` es la fuente única: el número de WhatsApp, las cédulas y la
 dirección ya no están hardcodeados en ningún componente. Si cambia un dato, se
@@ -67,6 +69,23 @@ cambia ahí y se propaga a la landing y al blog.
    sección de procedimientos. Máximo un enlace externo, y solo a fuente de
    autoridad.
 
+## Verificación automática
+
+`npm run build && npm run qa:blog` comprueba cada artículo contra los estándares
+on-page, leyendo el HTML ya generado en vez del código fuente. Falla con código 1,
+así que sirve tal cual en CI.
+
+Lo que verifica: longitud del `<title>` y que coincida con el registro; meta
+description de 150 a 155 caracteres; extensión (1200–1800 palabras en pilares,
+800–1200 en satélites); que cada ancla de la tabla de contenido tenga su
+encabezado; dos enlaces internos como mínimo; los tres bloques de schema y que la
+FAQ tenga al menos cuatro preguntas; la keyword primaria en H1, en un H2 y en la
+meta; "Puebla" entre 2 y 4 veces; el lenguaje que la norma prohíbe; y porcentajes
+sin fuente.
+
+El bloque "Temas relacionados" se descuenta del conteo de palabras y de menciones
+locales: su texto son títulos y descripciones de otros artículos, no prosa propia.
+
 ## Checklist antes de publicar
 
 - [ ] Revisado y aprobado clínicamente por el Dr. Fernández
@@ -78,7 +97,7 @@ cambia ahí y se propaga a la landing y al blog.
 - [ ] FAQ con mínimo 4 preguntas
 - [ ] Schema validado en Rich Results Test
 - [ ] CTA con `tema` propio del artículo
-- [ ] `npm run build` sin errores
+- [ ] `npm run build && npm run qa:blog` en verde
 - [ ] Enviado a indexación en Search Console
 - [ ] Publicado como Post en el Perfil de Empresa de Google, enlazando al artículo
 
@@ -90,7 +109,7 @@ Dos URLs compitiendo por la misma keyword se canibalizan, así que el artículo
 existente se reescribió en su lugar conservando el slug: no pierde la
 indexación acumulada y no hace falta un redirect que mantener.
 
-**No se crearon páginas de silo.** Con cuatro artículos, cinco índices de silo
+**No se crearon páginas de silo.** Con diez artículos, cinco índices de silo
 tendrían una o dos entradas cada uno. Eso es contenido delgado y perjudica más
 de lo que ayuda. Vale la pena retomarlo alrededor de los 15 artículos.
 
@@ -103,9 +122,23 @@ creen las páginas, basta cambiar el `href` por defecto de ese componente.
 Inicio › Blog › Silo › Artículo, pero las páginas de silo no existen y apuntar
 un breadcrumb a una URL inexistente genera error en Search Console.
 
+**El artículo de cirugía se reescribió.** La versión anterior de
+`cuanto-duele-cirugia-hemorroides` mencionaba hemorroidopexia y desarterialización
+guiada por Doppler, técnicas que no están confirmadas ni aparecen en la landing, e
+incluía un cronograma con "Día 7: vuelta al trabajo" y "Semana 3-4: recuperación
+total". Ambas cosas incumplen la norma: técnicas no confirmadas y tiempos de
+recuperación que `RANGO_INCAPACIDAD` deja pendientes. Se sustituyeron por una
+explicación del origen del dolor y por la forma de la curva de recuperación, sin
+cifras.
+
 ## Artículos pendientes
 
-Del mapa de la estrategia, los P1 que faltan: A2 (tratamiento de hemorroides en
-Puebla), B2 (dolor al defecar), B4 (bolita en el ano), C1 (láser vs. convencional
-— bloqueado por `TECNICAS_QX`), D1 (colonoscopia, pilar), D2 (señales de cáncer
-de colon), E1 (fisura anal). Después, los P2 y P3.
+Los diez P1 del mapa están publicados salvo **C1 (cirugía: láser vs. convencional)**,
+bloqueado por `TECNICAS_QX`. Quedan los catorce P2 y P3, que en el documento de
+estrategia solo existen como renglón: A3, A4, A5, B3, B5, C2, C4, D3, D4 y E2 a E6.
+Antes de escribirlos hay que definirles el ángulo y los H2, como tienen los briefs
+de la fase 1.
+
+Dos silos siguen sin pilar: **Procedimientos** y **Otras patologías**. Cuando
+crezcan, conviene designar uno para que el enlazado interno tenga hacia dónde
+apuntar.
