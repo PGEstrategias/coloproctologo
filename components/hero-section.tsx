@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { Phone, Shield, Clock, Star, Lock, Volume2, VolumeX } from 'lucide-react'
 import { Button } from './ui/button'
@@ -28,10 +28,60 @@ function HeroSection() {
   const [isMuted, setIsMuted] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
 
+  const unmute = useCallback(() => {
+    const video = videoRef.current
+    if (!video) return Promise.reject()
+    video.muted = false
+    video.volume = 1
+    return Promise.resolve(video.play()).then(() => setIsMuted(false))
+  }, [])
+
+  // Queremos que el video arranque con sonido. Los navegadores bloquean el
+  // autoplay con audio hasta que exista una interacción del usuario, así que
+  // lo intentamos de inmediato y, si nos lo rechazan, dejamos el video
+  // corriendo en silencio y activamos el audio en el primer gesto del usuario.
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    let cancelled = false
+    const events: (keyof WindowEventMap)[] = ['pointerdown', 'touchstart', 'keydown', 'scroll', 'wheel']
+
+    const onFirstGesture = () => {
+      unmute().catch(() => {})
+      cleanup()
+    }
+
+    const cleanup = () => {
+      events.forEach((event) => window.removeEventListener(event, onFirstGesture))
+    }
+
+    unmute().catch(() => {
+      // Autoplay con sonido rechazado: reproducimos en silencio y esperamos
+      // el primer gesto para activar el audio.
+      if (cancelled) return
+      video.muted = true
+      setIsMuted(true)
+      video.play().catch(() => {})
+      events.forEach((event) =>
+        window.addEventListener(event, onFirstGesture, { once: true, passive: true })
+      )
+    })
+
+    return () => {
+      cancelled = true
+      cleanup()
+    }
+  }, [unmute])
+
   const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted
-      setIsMuted(!isMuted)
+    const video = videoRef.current
+    if (!video) return
+    if (video.muted) {
+      unmute().catch(() => {})
+    } else {
+      video.muted = true
+      setIsMuted(true)
     }
   }
 
@@ -143,12 +193,12 @@ function HeroSection() {
                 ref={videoRef}
                 src={VIDEO_URL}
                 autoPlay
-                muted
+                muted={isMuted}
                 loop
                 playsInline
                 className="w-full h-full object-cover"
               />
-              {/* Unmute button - larger and more visible on mobile */}
+              {/* Control de audio: el video arranca con sonido; esto permite silenciarlo */}
               <button
                 onClick={toggleMute}
                 className="absolute bottom-16 right-3 z-20 w-12 h-12 sm:w-10 sm:h-10 bg-black/60 hover:bg-black/80 active:bg-black/90 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm border border-white/20"
@@ -160,12 +210,6 @@ function HeroSection() {
                   <Volume2 className="w-6 h-6 sm:w-5 sm:h-5 text-white" />
                 )}
               </button>
-              {/* Tap to unmute hint */}
-              {isMuted && (
-                <div className="absolute bottom-[104px] sm:bottom-28 right-3 z-20 bg-black/60 text-white text-xs px-2 py-1.5 rounded backdrop-blur-sm border border-white/20 whitespace-nowrap">
-                  🔊 Toca aquí
-                </div>
-              )}
             </div>
 
             {/* Stats card - positioned at bottom */}
