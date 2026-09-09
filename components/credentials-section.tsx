@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import { Award, Heart, Building2 } from 'lucide-react'
 
+import { doctor } from "@/config/site"
+
 const columns = [
   {
     icon: Award,
@@ -11,10 +13,10 @@ const columns = [
       "20 años de experiencia especializada",
       "Más de 10,000 consultas realizadas",
       "Más de 500 cirugías exitosas",
-      "Certificado por el Consejo Mexicano de Coloproctología",
-      "Cédula Médico: 2914327",
-      "Cédula Coloproctología: 4743089",
-      "Cédula Cirugía General: 4371811",
+      `Certificado por el ${doctor.consejo}`,
+      `Cédula Médico: ${doctor.cedulaMedico}`,
+      `Cédula Coloproctología: ${doctor.cedulaColoproctologia}`,
+      `Cédula Cirugía General: ${doctor.cedulaCirugiaGeneral}`,
     ],
   },
   {

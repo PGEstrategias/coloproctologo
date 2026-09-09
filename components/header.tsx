@@ -7,8 +7,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 import { Button } from "./ui/button"
 
-const WHATSAPP_LINK = "https://wa.me/522222963593?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
-const PHONE_NUMBER = "tel:+522225040271"
+import { WHATSAPP_LINK, contacto } from "@/config/site"
+const PHONE_NUMBER = `tel:${contacto.telefono}`
+
 const LOGO_URL = "https://res.cloudinary.com/dxcr9utre/image/upload/v1770793713/WhatsApp_Image_2026-02-11_at_1.07.21_AM_jrjeyx.jpg"
 
 const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {

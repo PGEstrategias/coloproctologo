@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 
+import ArticleSchema from "@/components/blog/article-schema"
 import BlogPostLayout from "@/components/blog/blog-post-layout"
 import { blogPosts } from "@/lib/blog-posts"
 
@@ -10,39 +11,19 @@ export const metadata: Metadata = {
   description: post.description,
 }
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "MedicalWebPage",
-  headline: post.title,
-  description: post.description,
-  datePublished: post.dateISO,
-  dateModified: post.dateISO,
-  author: {
-    "@type": "Physician",
-    name: "Dr. José Manuel Fernández Rivero",
-    identifier: "Cédula profesional 2914327 / Especialidad 4743089",
-    medicalSpecialty: "Coloproctología",
-  },
-  reviewedBy: {
-    "@type": "Physician",
-    name: "Dr. José Manuel Fernández Rivero",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "Dr. José Manuel Fernández Rivero - Coloproctólogo",
-    address: "Av 23 Pte 4303, Belisario Domínguez, 72180 Puebla, México",
-  },
-}
-
 export default function Page() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      <ArticleSchema
+        titulo={post.title}
+        descripcion={post.description}
+        slug={post.slug}
+        fechaPublicacion={post.dateISO}
+        condicion="Enfermedad hemorroidal"
       />
       <BlogPostLayout
         category={post.category}
+        tema="la cirugía de hemorroides"
         title={post.title}
         dateLabel={post.dateLabel}
         readTime={post.readTime}

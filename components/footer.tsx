@@ -1,4 +1,7 @@
+import Link from 'next/link'
 import { Facebook, Instagram } from 'lucide-react'
+
+import { doctor, ubicacion } from "@/config/site"
 
 function Footer() {
   return (
@@ -8,11 +11,11 @@ function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Doctor info */}
           <div>
-            <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3">Dr. José Manuel Fernández Rivero</h3>
+            <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3">{doctor.nombre}</h3>
             <div className="space-y-1 text-xs sm:text-sm text-white/70">
-              <p>Cédula Médico: 2914327</p>
-              <p>Cédula Coloproctología: 4743089</p>
-              <p>Cédula Cirugía General: 4371811</p>
+              <p>Cédula Médico: {doctor.cedulaMedico}</p>
+              <p>Cédula Coloproctología: {doctor.cedulaColoproctologia}</p>
+              <p>Cédula Cirugía General: {doctor.cedulaCirugiaGeneral}</p>
             </div>
           </div>
 
@@ -20,7 +23,7 @@ function Footer() {
           <div>
             <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3">Información Legal</h3>
             <div className="space-y-1 text-xs sm:text-sm text-white/70">
-              <p>COFEPRIS: 2521062002A00018</p>
+              <p>COFEPRIS: {doctor.cofepris}</p>
             </div>
           </div>
 
@@ -28,8 +31,8 @@ function Footer() {
           <div>
             <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3">Ubicaciones</h3>
             <div className="space-y-1 text-xs sm:text-sm text-white/70">
-              <p>Av 23 Pte 4303, Belisario Domínguez, 72180 Puebla</p>
-              <p>Quirófano: Cielo Medical Center</p>
+              <p>{`${ubicacion.calle}, ${ubicacion.colonia}, ${ubicacion.codigoPostal} ${ubicacion.ciudad}`}</p>
+              <p>Quirófano: {ubicacion.quirofano}</p>
             </div>
           </div>
         </div>
@@ -54,7 +57,7 @@ function Footer() {
           </div>
 
           <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm text-white/50">
-            <a href="#" className="hover:text-white/80 transition-colors">Aviso de Privacidad</a>
+            <Link href="/privacy" className="hover:text-white/80 transition-colors">Aviso de Privacidad</Link>
             <span>|</span>
             <a href="#" className="hover:text-white/80 transition-colors">Términos y Condiciones</a>
           </div>

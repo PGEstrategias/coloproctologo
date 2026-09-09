@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 
+import { doctor } from "@/config/site"
+
 const faqs = [
   {
     question: "¿Cuánto duele realmente la cirugía de hemorroides?",
@@ -27,7 +29,7 @@ const faqs = [
   },
   {
     question: "¿Cómo sé que puedo confiar en ti?",
-    answer: `Entiendo perfectamente esta preocupación. Es tu cuerpo y tu salud.\n\nLo que puedo ofrecerte:\n✅ Cédula Médico: 2914327\n✅ Cédula Coloproctología: 4743089\n✅ Cédula Cirugía General: 4371811\n✅ 20 años de experiencia comprobable\n✅ Más de 500 cirugías exitosas\n✅ Consultorio y quirófano certificados\n✅ COFEPRIS: 2521062002A00018\n✅ Testimonios reales de pacientes\n\nTe invito a que vengas a conocerme. Si después de la valoración no te sientes cómodo, no hay ningún compromiso de continuar.`,
+    answer: `Entiendo perfectamente esta preocupación. Es tu cuerpo y tu salud.\n\nLo que puedo ofrecerte:\n✅ Cédula Médico: ${doctor.cedulaMedico}\n✅ Cédula Coloproctología: ${doctor.cedulaColoproctologia}\n✅ Cédula Cirugía General: ${doctor.cedulaCirugiaGeneral}\n✅ 20 años de experiencia comprobable\n✅ Más de 500 cirugías exitosas\n✅ Consultorio y quirófano certificados\n✅ COFEPRIS: ${doctor.cofepris}\n✅ Testimonios reales de pacientes\n\nTe invito a que vengas a conocerme. Si después de la valoración no te sientes cómodo, no hay ningún compromiso de continuar.`,
   },
   {
     question: "¿La consulta es privada y confidencial?",

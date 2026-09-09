@@ -4,8 +4,8 @@ import { motion } from 'framer-motion'
 import { Phone, Clock, Calendar, Lock, Shield } from 'lucide-react'
 import { Button } from './ui/button'
 
-const WHATSAPP_LINK = "https://wa.me/522222963593?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
-const PHONE_NUMBER = "tel:+522225040271"
+import { WHATSAPP_LINK, contacto } from "@/config/site"
+const PHONE_NUMBER = `tel:${contacto.telefono}`
 
 const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
   e.preventDefault()

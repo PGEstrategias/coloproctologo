@@ -85,3 +85,35 @@
     bottom: calc(1.5rem + env(safe-area-inset-bottom));
   }
 }
+
+/*
+ * Tipografía del cuerpo de los artículos del blog.
+ *
+ * La clase .prose-article ya se aplicaba en la plantilla pero no estaba
+ * definida, así que cada artículo tenía que repetir las clases de Tailwind en
+ * cada párrafo. Estos estilos dan el piso: 17px con interlineado 1.7 en móvil,
+ * que es donde se lee la mayor parte de este contenido.
+ */
+.prose-article p,
+.prose-article li {
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.7;
+}
+
+.prose-article h2 {
+  scroll-margin-top: 6rem; /* deja aire bajo el header fijo al saltar desde la TOC */
+}
+
+.prose-article h3 {
+  scroll-margin-top: 6rem;
+}
+
+.prose-article a:not([class]) {
+  color: #15803d;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-article a:not([class]):hover {
+  color: #166534;
+}

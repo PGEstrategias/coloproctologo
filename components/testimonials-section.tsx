@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
 import { Button } from './ui/button'
 
-const WHATSAPP_LINK = "https://wa.me/522222963593?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
+import { WHATSAPP_LINK } from "@/config/site"
 
 const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
   e.preventDefault()

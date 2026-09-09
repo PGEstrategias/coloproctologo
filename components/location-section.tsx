@@ -3,8 +3,8 @@
 import { motion } from 'framer-motion'
 import { MapPin, Clock, Phone, MessageCircle, Car, Accessibility, ShieldCheck, Landmark } from 'lucide-react'
 
-const WHATSAPP_LINK = "https://wa.me/522222963593?text=Hola%20Dr.%20Fernández%2C%20me%20gustaría%20agendar%20una%20cita."
-const PHONE_NUMBER = "tel:+522225040271"
+import { WHATSAPP_LINK, contacto, ubicacion } from "@/config/site"
+const PHONE_NUMBER = `tel:${contacto.telefono}`
 
 const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
   e.preventDefault()
@@ -54,7 +54,7 @@ function LocationSection() {
                   <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-sm sm:text-base text-gray-800">Dirección</p>
-                    <p className="text-sm text-gray-600">Av 23 Pte 4303, Belisario Domínguez<br />72180 Heroica Puebla de Zaragoza, Pue.</p>
+                    <p className="text-sm text-gray-600">{ubicacion.calle}, {ubicacion.colonia}<br />{ubicacion.codigoPostal} Heroica Puebla de Zaragoza, Pue.</p>
                   </div>
                 </div>
 
@@ -73,7 +73,7 @@ function LocationSection() {
                   <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-sm sm:text-base text-gray-800">Urgencias</p>
-                    <a href={PHONE_NUMBER} className="text-sm text-green-700 hover:underline" onClick={handleCallClick}>222 504 0271</a>
+                    <a href={PHONE_NUMBER} className="text-sm text-green-700 hover:underline" onClick={handleCallClick}>{contacto.telefonoDisplay}</a>
                   </div>
                 </div>
 
@@ -88,7 +88,7 @@ function LocationSection() {
                       className="text-sm text-green-700 hover:underline"
                       onClick={handleWhatsAppClick}
                     >
-                      222 296 3593
+                      {contacto.whatsappDisplay}
                     </a>
                   </div>
                 </div>
