@@ -2,9 +2,29 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 
+// Favicon: el logo "Cirugía de Colon y Recto" servido desde Cloudinary.
+// El asset original es un JPG de 640x480 con el logo centrado sobre fondo
+// blanco, así que lo recortamos a la figura del colon (el texto circular es
+// ilegible a tamaño de pestaña) y lo entregamos cuadrado y en PNG:
+//   e_trim  -> elimina el margen blanco alrededor del logo
+//   c_crop  -> se queda con el 45% x 60% central, es decir el colon
+//   c_pad   -> lo cuadra sin recortar, rellenando con blanco
+const LOGO_ID = "v1788922755/WhatsApp_Image_2026-09-08_at_8.52.10_PM_jvko2w.png"
+const iconUrl = (size: number) =>
+  `https://res.cloudinary.com/djduba5fd/image/upload/e_trim/c_crop,g_center,w_0.45,h_0.6/c_pad,w_${size},h_${size},b_white/q_auto/${LOGO_ID}`
+
 export const metadata: Metadata = {
   title: "Dr. José Manuel Fernández Rivero | Coloproctólogo en Puebla",
   description: "Cirugía Proctológica Mínimamente Invasiva en Puebla. Más de 500 cirugías exitosas. Hemorroides, fístulas, fisuras y colonoscopia. Agenda tu valoración confidencial.",
+  icons: {
+    icon: [
+      { url: iconUrl(32), sizes: "32x32", type: "image/png" },
+      { url: iconUrl(192), sizes: "192x192", type: "image/png" },
+      { url: iconUrl(512), sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: [{ url: iconUrl(32), sizes: "32x32", type: "image/png" }],
+    apple: [{ url: iconUrl(180), sizes: "180x180", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({
