@@ -49,4 +49,54 @@ export const blogPosts: BlogPost[] = [
     dateISO: "2026-10-09",
     readTime: "9 min",
   },
+  {
+    slug: "fisura-anal-sintomas-tratamiento",
+    title: "Fisura anal: síntomas, causas y tratamiento sin cirugía y con cirugía",
+    description:
+      "¿Dolor intenso al evacuar? Conoce los síntomas de la fisura anal, cómo diferenciarla de las hemorroides y sus tratamientos, explicados por un coloproctólogo en Puebla.",
+    category: "Fisura anal",
+    dateLabel: "28 de octubre de 2026",
+    dateISO: "2026-10-28",
+    readTime: "8 min",
+  },
+  {
+    slug: "grados-de-hemorroides-tratamiento",
+    title: "Grados de hemorroides: qué tratamiento necesita cada uno y cuándo operar",
+    description:
+      "Conoce los 4 grados de hemorroides internas, los tratamientos sin cirugía, la ligadura con banda y cuándo se recomienda la hemorroidectomía, con un coloproctólogo en Puebla.",
+    category: "Hemorroides",
+    dateLabel: "28 de octubre de 2026",
+    dateISO: "2026-10-28",
+    readTime: "8 min",
+  },
+  {
+    slug: "preparacion-colonoscopia-que-esperar",
+    title: "Colonoscopia: cómo prepararte, qué esperar y a qué edad hacerla",
+    description:
+      "Guía paso a paso para preparar tu colonoscopia: dieta, laxante, qué sucede durante el estudio, recuperación y a qué edad iniciar la detección de cáncer colorrectal.",
+    category: "Colonoscopia",
+    dateLabel: "28 de octubre de 2026",
+    dateISO: "2026-10-28",
+    readTime: "9 min",
+  },
+  {
+    slug: "comezon-anal-causas",
+    title: "Comezón anal: causas frecuentes, qué hacer en casa y cuándo consultar",
+    description:
+      "La comezón anal es común y suele deberse a irritación de la piel. Conoce sus causas, medidas de higiene que ayudan y las señales para consultar a un coloproctólogo en Puebla.",
+    category: "Síntomas",
+    dateLabel: "28 de octubre de 2026",
+    dateISO: "2026-10-28",
+    readTime: "7 min",
+  },
+  {
+    slug: "estrenimiento-cronico-causas-tratamiento",
+    title: "Estreñimiento crónico: causas, tratamiento y cuándo consultar",
+    description:
+      "Qué se considera estreñimiento, sus causas más comunes, qué hacer en casa, tipos de laxantes y señales de alarma, explicado por un coloproctólogo en Puebla.",
+    category: "Salud digestiva y colon",
+    dateLabel: "28 de octubre de 2026",
+    dateISO: "2026-10-28",
+    readTime: "9 min",
+  },
 ]
