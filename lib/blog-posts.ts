@@ -99,4 +99,34 @@ export const blogPosts: BlogPost[] = [
     dateISO: "2026-10-28",
     readTime: "9 min",
   },
+  {
+    slug: "hemorroide-externa-trombosada",
+    title: "Hemorroide externa trombosada: síntomas, qué hacer y cuándo drenarla",
+    description:
+      "¿Bulto morado y muy doloroso en el ano? Conoce qué es una hemorroide trombosada, cuánto dura, qué hacer en casa y cuándo conviene retirarla, con un coloproctólogo en Puebla.",
+    category: "Hemorroides",
+    dateLabel: "5 de noviembre de 2026",
+    dateISO: "2026-11-05",
+    readTime: "7 min",
+  },
+  {
+    slug: "quiste-pilonidal-sintomas-tratamiento",
+    title: "Quiste pilonidal: síntomas, causas y opciones de tratamiento",
+    description:
+      "Qué es el quiste pilonidal, por qué aparece cerca del coxis, cómo se trata un absceso y qué opciones quirúrgicas existen para evitar que regrese, explicado por un coloproctólogo en Puebla.",
+    category: "Quiste pilonidal",
+    dateLabel: "5 de noviembre de 2026",
+    dateISO: "2026-11-05",
+    readTime: "8 min",
+  },
+  {
+    slug: "polipos-de-colon-que-son",
+    title: "Pólipos de colon: qué son, tipos y por qué se retiran en la colonoscopia",
+    description:
+      "Conoce qué son los pólipos de colon, cuáles pueden convertirse en cáncer, cómo se detectan y retiran durante la colonoscopia y qué sigue después, con un coloproctólogo en Puebla.",
+    category: "Colonoscopia",
+    dateLabel: "5 de noviembre de 2026",
+    dateISO: "2026-11-05",
+    readTime: "8 min",
+  },
 ]
